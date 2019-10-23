@@ -1,7 +1,0 @@
-Hello world!
-This is the first file which is created for test.
-Good Luck!
-
-hello! I'm coming again!
-
-hello! I'm coming again and again!
