@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "malloc.h": "c",
+        "sdio_sdcard.h": "c"
+    }
+}
