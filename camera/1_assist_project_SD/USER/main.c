@@ -6,13 +6,6 @@
 #include "key.h"  
 #include "malloc.h" 
 #include "sdio_sdcard.h"    
-//ALIENTEK 探索者STM32F407开发板 实验38
-//SD卡 实验 -库函数版本
-//技术支持：www.openedv.com
-//淘宝店铺：http://eboard.taobao.com
-//广州市星翼电子科技有限公司    
-//作者：正点原子 @ALIENTEK 
-
 
 //通过串口打印SD卡相关信息
 void show_sdcard_info(void)

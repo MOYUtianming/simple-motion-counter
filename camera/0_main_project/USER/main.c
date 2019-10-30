@@ -21,76 +21,70 @@
 #include "ov2640.h"	
 #include "beep.h"	
 #include "timer.h"
-//ALIENTEK Ì½Ë÷ÕßSTM32F407¿ª·¢°å ÊµÑé42
-//ÕÕÏà»ú ÊµÑé -¿âº¯Êý°æ±¾
-//¼¼ÊõÖ§³Ö£ºwww.openedv.com
-//ÌÔ±¦µêÆÌ£ºhttp://eboard.taobao.com
-//¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾    
-//×÷Õß£ºÕýµãÔ­×Ó @ALIENTEK 
 
- u8 ov2640_mode=0;						//¹¤×÷Ä£Ê½:0,RGB565Ä£Ê½;1,JPEGÄ£Ê½
+ u8 ov2640_mode=0;						//mod:0,RGB565 mod;1,JPEG mod
 
-#define jpeg_dma_bufsize	5*1024		//¶¨ÒåJPEG DMA½ÓÊÕÊ±Êý¾Ý»º´æjpeg_buf0/1µÄ´óÐ¡(*4×Ö½Ú)
-volatile u32 jpeg_data_len=0; 			//bufÖÐµÄJPEGÓÐÐ§Êý¾Ý³¤¶È(*4×Ö½Ú)
-volatile u8 jpeg_data_ok=0;				//JPEGÊý¾Ý²É¼¯Íê³É±êÖ¾ 
-										//0,Êý¾ÝÃ»ÓÐ²É¼¯Íê;
-										//1,Êý¾Ý²É¼¯ÍêÁË,µ«ÊÇ»¹Ã»´¦Àí;
-										//2,Êý¾ÝÒÑ¾­´¦ÀíÍê³ÉÁË,¿ÉÒÔ¿ªÊ¼ÏÂÒ»Ö¡½ÓÊÕ
+#define jpeg_dma_bufsize	5*1024		//buffer size(*4 byte)
+volatile u32 jpeg_data_len=0; 			//buf data length(*4 byte)
+volatile u8 jpeg_data_ok=0;				//photo process flag; 
+										//0,collection isn't finith;
+										//1,collected but not processed;
+										//2,complete all;
 										
-u32 *jpeg_buf0;							//JPEGÊý¾Ý»º´æbuf,Í¨¹ýmallocÉêÇëÄÚ´æ
-u32 *jpeg_buf1;							//JPEGÊý¾Ý»º´æbuf,Í¨¹ýmallocÉêÇëÄÚ´æ
-u32 *jpeg_data_buf;						//JPEGÊý¾Ý»º´æbuf,Í¨¹ýmallocÉêÇëÄÚ´æ
+u32 *jpeg_buf0;							//JPEGï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½buf,Í¨ï¿½ï¿½mallocï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+u32 *jpeg_buf1;							//JPEGï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½buf,Í¨ï¿½ï¿½mallocï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+u32 *jpeg_data_buf;						//JPEGï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½buf,Í¨ï¿½ï¿½mallocï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 
-//´¦ÀíJPEGÊý¾Ý
-//µ±²É¼¯ÍêÒ»Ö¡JPEGÊý¾Ýºó,µ÷ÓÃ´Ëº¯Êý,ÇÐ»»JPEG BUF.¿ªÊ¼ÏÂÒ»Ö¡²É¼¯.
+//process data;
+//one photo has been collected,use this function to transfer buffer and start next collection.
 void jpeg_data_process(void)
 {
 	u16 i;
-	u16 rlen;//Ê£ÓàÊý¾Ý³¤¶È
+	u16 rlen;//Ê£ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½
 	u32 *pbuf;
-	if(ov2640_mode)//Ö»ÓÐÔÚJPEG¸ñÊ½ÏÂ,²ÅÐèÒª×ö´¦Àí.
+	if(ov2640_mode)//Ö»ï¿½ï¿½ï¿½ï¿½JPEGï¿½ï¿½Ê½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	{
-		if(jpeg_data_ok==0)	//jpegÊý¾Ý»¹Î´²É¼¯Íê?
+		if(jpeg_data_ok==0)	//jpegï¿½ï¿½ï¿½Ý»ï¿½Î´ï¿½É¼ï¿½ï¿½ï¿½?
 		{
-			DMA_Cmd(DMA2_Stream1,DISABLE);		//Í£Ö¹µ±Ç°´«Êä
-			while(DMA_GetCmdStatus(DMA2_Stream1) != DISABLE);	//µÈ´ýDMA2_Stream1¿ÉÅäÖÃ 
-			rlen=jpeg_dma_bufsize-DMA_GetCurrDataCounter(DMA2_Stream1);//µÃµ½Ê£ÓàÊý¾Ý³¤¶È	
-			pbuf=jpeg_data_buf+jpeg_data_len;//Æ«ÒÆµ½ÓÐÐ§Êý¾ÝÄ©Î²,¼ÌÐøÌí¼Ó
-			if(DMA2_Stream1->CR&(1<<19))for(i=0;i<rlen;i++)pbuf[i]=jpeg_buf1[i];//¶ÁÈ¡buf1ÀïÃæµÄÊ£ÓàÊý¾Ý
-			else for(i=0;i<rlen;i++)pbuf[i]=jpeg_buf0[i];//¶ÁÈ¡buf0ÀïÃæµÄÊ£ÓàÊý¾Ý 
-			jpeg_data_len+=rlen;			//¼ÓÉÏÊ£Óà³¤¶È
-			jpeg_data_ok=1; 				//±ê¼ÇJPEGÊý¾Ý²É¼¯Íê°´³É,µÈ´ýÆäËûº¯Êý´¦Àí
+			DMA_Cmd(DMA2_Stream1,DISABLE);		//Í£Ö¹ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+			while(DMA_GetCmdStatus(DMA2_Stream1) != DISABLE);	//ï¿½È´ï¿½DMA2_Stream1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+			rlen=jpeg_dma_bufsize-DMA_GetCurrDataCounter(DMA2_Stream1);//ï¿½Ãµï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½	
+			pbuf=jpeg_data_buf+jpeg_data_len;//Æ«ï¿½Æµï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½Ä©Î²,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			if(DMA2_Stream1->CR&(1<<19))for(i=0;i<rlen;i++)pbuf[i]=jpeg_buf1[i];//ï¿½ï¿½È¡buf1ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			else for(i=0;i<rlen;i++)pbuf[i]=jpeg_buf0[i];//ï¿½ï¿½È¡buf0ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+			jpeg_data_len+=rlen;			//ï¿½ï¿½ï¿½ï¿½Ê£ï¿½à³¤ï¿½ï¿½
+			jpeg_data_ok=1; 				//ï¿½ï¿½ï¿½JPEGï¿½ï¿½ï¿½Ý²É¼ï¿½ï¿½ê°´ï¿½ï¿½,ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
-		if(jpeg_data_ok==2)	//ÉÏÒ»´ÎµÄjpegÊý¾ÝÒÑ¾­±»´¦ÀíÁË
-		{ DMA_SetCurrDataCounter(DMA2_Stream1,jpeg_dma_bufsize);//´«Êä³¤¶ÈÎªjpeg_buf_size*4×Ö½Ú
-			DMA_Cmd(DMA2_Stream1,ENABLE); //ÖØÐÂ´«Êä
-			jpeg_data_ok=0;					//±ê¼ÇÊý¾ÝÎ´²É¼¯
-			jpeg_data_len=0;				//Êý¾ÝÖØÐÂ¿ªÊ¼
+		if(jpeg_data_ok==2)	//ï¿½ï¿½Ò»ï¿½Îµï¿½jpegï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		{ DMA_SetCurrDataCounter(DMA2_Stream1,jpeg_dma_bufsize);//ï¿½ï¿½ï¿½ä³¤ï¿½ï¿½Îªjpeg_buf_size*4ï¿½Ö½ï¿½
+			DMA_Cmd(DMA2_Stream1,ENABLE); //ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½
+			jpeg_data_ok=0;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½É¼ï¿½
+			jpeg_data_len=0;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
 		}
 	}
 }
 
 
 
-//jpegÊý¾Ý½ÓÊÕ»Øµ÷º¯Êý
+//data callback & splice;
 void jpeg_dcmi_rx_callback(void)
 { 
 	u16 i;
 	u32 *pbuf;
-	pbuf=jpeg_data_buf+jpeg_data_len;//Æ«ÒÆµ½ÓÐÐ§Êý¾ÝÄ©Î²
-	if(DMA2_Stream1->CR&(1<<19))//buf0ÒÑÂú,Õý³£´¦Àíbuf1
+	pbuf=jpeg_data_buf+jpeg_data_len;//offset to the end of file;
+	if(DMA2_Stream1->CR&(1<<19))//buf0 has been full,use buf1;
 	{ 
-		for(i=0;i<jpeg_dma_bufsize;i++)pbuf[i]=jpeg_buf0[i];//¶ÁÈ¡buf0ÀïÃæµÄÊý¾Ý
-		jpeg_data_len+=jpeg_dma_bufsize;//Æ«ÒÆ
-	}else //buf1ÒÑÂú,Õý³£´¦Àíbuf0
+		for(i=0;i<jpeg_dma_bufsize;i++)pbuf[i]=jpeg_buf0[i];//read buf0;
+		jpeg_data_len+=jpeg_dma_bufsize;//offset;
+	}else //buf1 has been full,use buf0;
 	{
-		for(i=0;i<jpeg_dma_bufsize;i++)pbuf[i]=jpeg_buf1[i];//¶ÁÈ¡buf1ÀïÃæµÄÊý¾Ý
-		jpeg_data_len+=jpeg_dma_bufsize;//Æ«ÒÆ 
+		for(i=0;i<jpeg_dma_bufsize;i++)pbuf[i]=jpeg_buf1[i];//read buf1;
+		jpeg_data_len+=jpeg_dma_bufsize;//offset;
 	} 	
 }
 
 
-//ÇÐ»»ÎªOV2640Ä£Ê½£¨GPIOC8/9/11ÇÐ»»Îª DCMI½Ó¿Ú£©
+//OV2640 modï¿½ï¿½GPIOC8/9/11 -> DCMI interface;ï¿½ï¿½
 void sw_ov2640_mode(void)
 {
 	OV2640_PWDN=0;//OV2640 Power Up
@@ -99,7 +93,7 @@ void sw_ov2640_mode(void)
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource11,GPIO_AF_DCMI); //PC11,AF13 DCMI_D4  
  
 } 
-//ÇÐ»»ÎªSD¿¨Ä£Ê½£¨GPIOC8/9/11ÇÐ»»Îª SDIO½Ó¿Ú£©
+//SD card modï¿½ï¿½GPIOC8/9/11 -> SDIO interface;ï¿½ï¿½
 void sw_sdcard_mode(void)
 {
 	OV2640_PWDN=1;//OV2640 Power Down  
@@ -108,10 +102,10 @@ void sw_sdcard_mode(void)
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource11,GPIO_AF_SDIO); 
 }
 	
-//ÎÄ¼þÃû×ÔÔö£¨±ÜÃâ¸²¸Ç£©
-//mode:0,´´½¨.bmpÎÄ¼þ;1,´´½¨.jpgÎÄ¼þ.
-//bmp×éºÏ³É:ÐÎÈç"0:PHOTO/PIC13141.bmp"µÄÎÄ¼þÃû
-//jpg×éºÏ³É:ÐÎÈç"0:PHOTO/PIC13141.jpg"µÄÎÄ¼þÃû
+//file serial number "++"ï¿½ï¿½avoid replacement;ï¿½ï¿½
+//mode:0,.bmp;1,.jpg.
+//bmp  file name"0:PHOTO/PIC13141.bmp";
+//jpg file name:"0:PHOTO/PIC13141.jpg";
 void camera_new_pathname(u8 *pname,u8 mode)
 {	 
 	u8 res;					 
@@ -120,14 +114,14 @@ void camera_new_pathname(u8 *pname,u8 mode)
 	{
 		if(mode==0)sprintf((char*)pname,"0:PHOTO/PIC%05d.bmp",index);
 		else sprintf((char*)pname,"0:PHOTO/PIC%05d.jpg",index);
-		res=f_open(ftemp,(const TCHAR*)pname,FA_READ);//³¢ÊÔ´ò¿ªÕâ¸öÎÄ¼þ
-		if(res==FR_NO_FILE)break;		//¸ÃÎÄ¼þÃû²»´æÔÚ=ÕýÊÇÎÒÃÇÐèÒªµÄ.
+		res=f_open(ftemp,(const TCHAR*)pname,FA_READ);//try to open the file;
+		if(res==FR_NO_FILE)break;		//without a file named as it which is what we need;
 		index++;
 	}
 } 
-//OV2640ÅÄÕÕjpgÍ¼Æ¬
-//·µ»ØÖµ:0,³É¹¦
-//    ÆäËû,´íÎó´úÂë
+//OV2640_jpg_photo;
+//return:0,success;
+//return others , error;
 u8 ov2640_jpg_photo(u8 *pname)
 {
 	FIL* f_jpg;
@@ -135,46 +129,46 @@ u8 ov2640_jpg_photo(u8 *pname)
 	u32 bwr;
 	u16 i;
 	u8* pbuf;
-	f_jpg=(FIL *)mymalloc(SRAMIN,sizeof(FIL));	//¿ª±ÙFIL×Ö½ÚµÄÄÚ´æÇøÓò 
-	if(f_jpg==NULL)return 0XFF;					//ÄÚ´æÉêÇëÊ§°Ü.
+	f_jpg=(FIL *)mymalloc(SRAMIN,sizeof(FIL));	//ï¿½ï¿½ï¿½ï¿½FILï¿½Ö½Úµï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	if(f_jpg==NULL)return 0XFF;					//ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½.
 	ov2640_mode=1;
-	sw_ov2640_mode();		//ÇÐ»»ÎªOV2640Ä£Ê½
-	dcmi_rx_callback=jpeg_dcmi_rx_callback;//»Øµ÷º¯Êý
-	DCMI_DMA_Init((u32)jpeg_buf0,(u32)jpeg_buf1,jpeg_dma_bufsize,DMA_MemoryDataSize_Word,DMA_MemoryInc_Enable);//DCMI DMAÅäÖÃ(Ë«»º³åÄ£Ê½)
-	OV2640_JPEG_Mode();		//ÇÐ»»ÎªJPEGÄ£Ê½ 
+	sw_ov2640_mode();		//ï¿½Ð»ï¿½ÎªOV2640Ä£Ê½
+	dcmi_rx_callback=jpeg_dcmi_rx_callback;//ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	DCMI_DMA_Init((u32)jpeg_buf0,(u32)jpeg_buf1,jpeg_dma_bufsize,DMA_MemoryDataSize_Word,DMA_MemoryInc_Enable);//DCMI DMAï¿½ï¿½ï¿½ï¿½(Ë«ï¿½ï¿½ï¿½ï¿½Ä£Ê½)
+	OV2640_JPEG_Mode();		//ï¿½Ð»ï¿½ÎªJPEGÄ£Ê½ 
  	OV2640_ImageWin_Set(0,0,1600,1200);			 
-	OV2640_OutSize_Set(1600,1200);//ÅÄÕÕ³ß´çÎª1600*1200
-	DCMI_Start(); 			//Æô¶¯´«Êä 
-	while(jpeg_data_ok!=1);	//µÈ´ýµÚÒ»Ö¡Í¼Æ¬²É¼¯Íê
-	jpeg_data_ok=2;			//ºöÂÔ±¾Ö¡Í¼Æ¬,Æô¶¯ÏÂÒ»Ö¡²É¼¯
-	while(jpeg_data_ok!=1);	//µÈ´ýµÚ¶þÖ¡Í¼Æ¬²É¼¯Íê
-	jpeg_data_ok=2;			//ºöÂÔ±¾Ö¡Í¼Æ¬,Æô¶¯ÏÂÒ»Ö¡²É¼¯
-	while(jpeg_data_ok!=1);	//µÈ´ýµÚÈýÖ¡Í¼Æ¬²É¼¯Íê,µÚÈýÖ¡,²Å±£´æµ½SD¿¨È¥.
-	DCMI_Stop(); 			//Í£Ö¹DMA°áÔË
+	OV2640_OutSize_Set(1600,1200);//ï¿½ï¿½ï¿½Õ³ß´ï¿½Îª1600*1200
+	DCMI_Start(); 			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	while(jpeg_data_ok!=1);	//ï¿½È´ï¿½ï¿½ï¿½Ò»Ö¡Í¼Æ¬ï¿½É¼ï¿½ï¿½ï¿½
+	jpeg_data_ok=2;			//ï¿½ï¿½ï¿½Ô±ï¿½Ö¡Í¼Æ¬,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡ï¿½É¼ï¿½
+	while(jpeg_data_ok!=1);	//ï¿½È´ï¿½ï¿½Ú¶ï¿½Ö¡Í¼Æ¬ï¿½É¼ï¿½ï¿½ï¿½
+	jpeg_data_ok=2;			//ï¿½ï¿½ï¿½Ô±ï¿½Ö¡Í¼Æ¬,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡ï¿½É¼ï¿½
+	while(jpeg_data_ok!=1);	//ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡Í¼Æ¬ï¿½É¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¡,ï¿½Å±ï¿½ï¿½æµ½SDï¿½ï¿½È¥.
+	DCMI_Stop(); 			//Í£Ö¹DMAï¿½ï¿½ï¿½ï¿½
 	ov2640_mode=0;
-	sw_sdcard_mode();		//ÇÐ»»ÎªSD¿¨Ä£Ê½
-	res=f_open(f_jpg,(const TCHAR*)pname,FA_WRITE|FA_CREATE_NEW);//Ä£Ê½0,»òÕß³¢ÊÔ´ò¿ªÊ§°Ü,Ôò´´½¨ÐÂÎÄ¼þ	 
+	sw_sdcard_mode();		//ï¿½Ð»ï¿½ÎªSDï¿½ï¿½Ä£Ê½
+	res=f_open(f_jpg,(const TCHAR*)pname,FA_WRITE|FA_CREATE_NEW);//Ä£Ê½0,ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ô´ï¿½Ê§ï¿½ï¿½,ï¿½ò´´½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½	 
 	if(res==0)
 	{
-		printf("jpeg data size:%d\r\n",jpeg_data_len*4);//´®¿Ú´òÓ¡JPEGÎÄ¼þ´óÐ¡
+		printf("jpeg data size:%d\r\n",jpeg_data_len*4);//ï¿½ï¿½ï¿½Ú´ï¿½Ó¡JPEGï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 		pbuf=(u8*)jpeg_data_buf;
-		for(i=0;i<jpeg_data_len*4;i++)//²éÕÒ0XFF,0XD8
+		for(i=0;i<jpeg_data_len*4;i++)//ï¿½ï¿½ï¿½ï¿½0XFF,0XD8
 		{
 			if((pbuf[i]==0XFF)&&(pbuf[i+1]==0XD8))break;
 		}
-		if(i==jpeg_data_len*4)res=0XFD;//Ã»ÕÒµ½0XFF,0XD8
-		else//ÕÒµ½ÁË
+		if(i==jpeg_data_len*4)res=0XFD;//Ã»ï¿½Òµï¿½0XFF,0XD8
+		else//ï¿½Òµï¿½ï¿½ï¿½
 		{
-			pbuf+=i;//Æ«ÒÆµ½0XFF,0XD8´¦
+			pbuf+=i;//Æ«ï¿½Æµï¿½0XFF,0XD8ï¿½ï¿½
 			res=f_write(f_jpg,pbuf,jpeg_data_len*4-i,&bwr);
 			if(bwr!=(jpeg_data_len*4-i))res=0XFE; 
 		}
 	}
 	jpeg_data_len=0;
 	f_close(f_jpg); 
-	sw_ov2640_mode();		//ÇÐ»»ÎªOV2640Ä£Ê½
+	sw_ov2640_mode();		//ï¿½Ð»ï¿½ÎªOV2640Ä£Ê½
 	OV2640_RGB565_Mode();	//RGB565Ä£Ê½ 
-	DCMI_DMA_Init((u32)&LCD->LCD_RAM,0,1,DMA_MemoryDataSize_HalfWord,DMA_MemoryInc_Disable);//DCMI DMAÅäÖÃ   
+	DCMI_DMA_Init((u32)&LCD->LCD_RAM,0,1,DMA_MemoryDataSize_HalfWord,DMA_MemoryInc_Disable);//DCMI DMAï¿½ï¿½ï¿½ï¿½   
 	myfree(SRAMIN,f_jpg); 
 	return res;
 }  
@@ -183,143 +177,155 @@ u8 ov2640_jpg_photo(u8 *pname)
 int main(void)
 {        
 	u8 res;							 
-	u8 *pname;				//´øÂ·¾¶µÄÎÄ¼þÃû 
-	u8 key;					//¼üÖµ		   
+	u8 *pname;				//file name; 
+	u8 key;					//key value;
 	u8 i;						 
-	u8 sd_ok=1;				//0,sd¿¨²»Õý³£;1,SD¿¨Õý³£. 
- 	u8 scale=1;				//Ä¬ÈÏÊÇÈ«³ß´çËõ·Å
-	u8 msgbuf[15];			//ÏûÏ¢»º´æÇø 
-
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//ÉèÖÃÏµÍ³ÖÐ¶ÏÓÅÏÈ¼¶·Ö×é2
-	delay_init(168);  //³õÊ¼»¯ÑÓÊ±º¯Êý
-	uart_init(115200);		//³õÊ¼»¯´®¿Ú²¨ÌØÂÊÎª115200
-	LED_Init();					//³õÊ¼»¯LED 
-	usmart_dev.init(84);		//³õÊ¼»¯USMART
-	TIM3_Int_Init(10000-1,8400-1);//10Khz¼ÆÊý,1ÃëÖÓÖÐ¶ÏÒ»´Î
- 	LCD_Init();					//LCD³õÊ¼»¯  
-	FSMC_SRAM_Init();			//³õÊ¼»¯Íâ²¿SRAM.
- 	BEEP_Init();				//·äÃùÆ÷³õÊ¼»¯
- 	KEY_Init();					//°´¼ü³õÊ¼»¯   
-	W25QXX_Init();				//³õÊ¼»¯W25Q128 
-	my_mem_init(SRAMIN);		//³õÊ¼»¯ÄÚ²¿ÄÚ´æ³Ø 
-	my_mem_init(SRAMEX);		//³õÊ¼»¯ÄÚ²¿ÄÚ´æ³Ø  
-	my_mem_init(SRAMCCM);		//³õÊ¼»¯CCMÄÚ´æ³Ø 
-	exfuns_init();				//ÎªfatfsÏà¹Ø±äÁ¿ÉêÇëÄÚ´æ  
-  f_mount(fs[0],"0:",1); 		//¹ÒÔØSD¿¨  
+	u8 sd_ok=1;				//0,sd card normal;1,SD card unnormal. 
+ 	u8 scale=1;				//full scale;
+	u8 msgbuf[15];			//message buffer;
+//Init;
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//NVIC set as level 2;
+	delay_init(168);  //delay function init;
+	uart_init(115200);		//UART baud rate : 115200 ;
+	LED_Init();					//LED init;
+	usmart_dev.init(84);		//USMART init;
+	TIM3_Int_Init(10000-1,8400-1);//10Khz timer,1 interrupt p s;
+ 	LCD_Init();					//LCD init;  
+	FSMC_SRAM_Init();			//external SRAM init;
+ 	BEEP_Init();				//beep init;
+ 	KEY_Init();					//key init;   
+	W25QXX_Init();				//W25Q128 init;
+	my_mem_init(SRAMIN);		//sram init; 
+	my_mem_init(SRAMEX);		//sram init;  
+	my_mem_init(SRAMCCM);		//CCM init;
+	exfuns_init();				//fatfs init;  
+//mount SD card;
+  	f_mount(fs[0],"0:",1); 		//mount memory;
+//LCD set;
 	POINT_COLOR=RED;      
-	while(font_init()) 		//¼ì²é×Ö¿â
+	while(font_init()) 		//check the word set;
 	{	    
 		LCD_ShowString(30,50,200,16,16,"Font Error!");
 		delay_ms(200);				  
-		LCD_Fill(30,50,240,66,WHITE);//Çå³ýÏÔÊ¾	     
+		LCD_Fill(30,50,240,66,WHITE);//clear all;
 		delay_ms(200);				  
-	}  	 
- 	Show_Str(30,50,200,16,"Explorer STM32F4¿ª·¢°å",16,0);	 			    	 
-	Show_Str(30,70,200,16,"ÕÕÏà»úÊµÑé",16,0);				    	 
-	Show_Str(30,90,200,16,"KEY0:ÅÄÕÕ(bmp¸ñÊ½)",16,0);			    	 
-	Show_Str(30,110,200,16,"KEY1:ÅÄÕÕ(jpg¸ñÊ½)",16,0);					    	 
+	}
+//general display;
+ 	Show_Str(30,50,200,16,"Explorer STM32F4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",16,0);	 			    	 
+	Show_Str(30,70,200,16,"ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½",16,0);				    	 
+	Show_Str(30,90,200,16,"KEY0:ï¿½ï¿½ï¿½ï¿½(bmpï¿½ï¿½Ê½)",16,0);			    	 
+	Show_Str(30,110,200,16,"KEY1:ï¿½ï¿½ï¿½ï¿½(jpgï¿½ï¿½Ê½)",16,0);					    	 
 	Show_Str(30,130,200,16,"WK_UP:FullSize/Scale",16,0);				    	 
-	Show_Str(30,150,200,16,"2014Äê5ÔÂ16ÈÕ",16,0);
-	res=f_mkdir("0:/PHOTO");		//´´½¨PHOTOÎÄ¼þ¼Ð
-	if(res!=FR_EXIST&&res!=FR_OK) 	//·¢ÉúÁË´íÎó
+	Show_Str(30,150,200,16,"2019ï¿½ï¿½10ï¿½ï¿½30ï¿½ï¿½",16,0);
+//SD card file block;
+	res=f_mkdir("0:/PHOTO");		//mkdir:photo;
+	if(res!=FR_EXIST&&res!=FR_OK) 	//error;
 	{		    
-		Show_Str(30,150,240,16,"SD¿¨´íÎó!",16,0);
+		Show_Str(30,150,240,16,"SDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!",16,0);
 		delay_ms(200);				  
-		Show_Str(30,170,240,16,"ÅÄÕÕ¹¦ÄÜ½«²»¿ÉÓÃ!",16,0);
+		Show_Str(30,170,240,16,"ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½Ü½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!",16,0);
 		sd_ok=0;  	
 	} 	
-	jpeg_buf0=mymalloc(SRAMIN,jpeg_dma_bufsize*4);	//Îªjpeg dma½ÓÊÕÉêÇëÄÚ´æ	
-	jpeg_buf1=mymalloc(SRAMIN,jpeg_dma_bufsize*4);	//Îªjpeg dma½ÓÊÕÉêÇëÄÚ´æ	
-	jpeg_data_buf=mymalloc(SRAMEX,300*1024);		//ÎªjpegÎÄ¼þÉêÇëÄÚ´æ(×î´ó300KB)
- 	pname=mymalloc(SRAMIN,30);//Îª´øÂ·¾¶µÄÎÄ¼þÃû·ÖÅä30¸ö×Ö½ÚµÄÄÚ´æ	 
- 	while(pname==NULL||!jpeg_buf0||!jpeg_buf1||!jpeg_data_buf)	//ÄÚ´æ·ÖÅä³ö´í
+
+	jpeg_buf0=mymalloc(SRAMIN,jpeg_dma_bufsize*4);	//dma data buffer;
+	jpeg_buf1=mymalloc(SRAMIN,jpeg_dma_bufsize*4);	//dma datd buffer;
+	jpeg_data_buf=mymalloc(SRAMEX,300*1024);		//data space (less than 300KB)
+ 	pname=mymalloc(SRAMIN,30);//file name space;
+ 	while(pname==NULL||!jpeg_buf0||!jpeg_buf1||!jpeg_data_buf)	//error;
  	{	    
-		Show_Str(30,190,240,16,"ÄÚ´æ·ÖÅäÊ§°Ü!",16,0);
+		Show_Str(30,190,240,16,"ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½!",16,0);
 		delay_ms(200);				  
-		LCD_Fill(30,190,240,146,WHITE);//Çå³ýÏÔÊ¾	     
+		LCD_Fill(30,190,240,146,WHITE);//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾	     
 		delay_ms(200);				  
 	}   
-	while(OV2640_Init())//³õÊ¼»¯OV2640
+//Camera set block;
+	while(OV2640_Init())//init OV2640
 	{
-		Show_Str(30,190,240,16,"OV2640 ´íÎó!",16,0);
+		Show_Str(30,190,240,16,"OV2640 ï¿½ï¿½ï¿½ï¿½!",16,0);
 		delay_ms(200);
 	    LCD_Fill(30,190,239,206,WHITE);
 		delay_ms(200);
 	}	
- 	Show_Str(30,190,200,16,"OV2640 Õý³£",16,0);
+ 	Show_Str(30,190,200,16,"OV2640 ï¿½ï¿½ï¿½ï¿½",16,0);
 	delay_ms(2000);
-	OV2640_RGB565_Mode();	//JPEGÄ£Ê½
-	My_DCMI_Init();			//DCMIÅäÖÃ
-	DCMI_DMA_Init((u32)&LCD->LCD_RAM,0,1,DMA_MemoryDataSize_HalfWord,DMA_MemoryInc_Disable);//DCMI DMAÅäÖÃ  
+	OV2640_RGB565_Mode();	//RGB565 mod;
+	My_DCMI_Init();			//DCMI set;
+	DCMI_DMA_Init((u32)&LCD->LCD_RAM,0,1,DMA_MemoryDataSize_HalfWord,DMA_MemoryInc_Disable);//DCMI_DMA set;  
  	OV2640_OutSize_Set(lcddev.width,lcddev.height); 
-	DCMI_Start(); 			//Æô¶¯´«Êä 
+	
+	DCMI_Start(); 			//start transfer.
+//MAIN function block;
  	while(1)
 	{	
-		key=KEY_Scan(0);//²»Ö§³ÖÁ¬°´
+		key=KEY_Scan(0);//can't support continue press;
 		if(key)
 		{
-			DCMI_Stop(); //Í£Ö¹ÏÔÊ¾ 
+			DCMI_Stop(); //stop transfer;
+
 			if(key==WKUP_PRES) 
 			{
 				scale=!scale;  
 				if(scale==0)
 				{
-					OV2640_ImageWin_Set((1600-lcddev.width)/2,(1200-lcddev.height)/2,lcddev.width,lcddev.height);//1:1ÕæÊµ³ß´ç
+					OV2640_ImageWin_Set((1600-lcddev.width)/2,(1200-lcddev.height)/2,lcddev.width,lcddev.height);//1:1 scale
 					OV2640_OutSize_Set(lcddev.width,lcddev.height); 
 					sprintf((char*)msgbuf,"Full Size 1:1");
 				}else 
 				{
-					OV2640_ImageWin_Set(0,0,1600,1200);				//È«³ß´çËõ·Å
+					OV2640_ImageWin_Set(0,0,1600,1200);				//full scale zoom
 					OV2640_OutSize_Set(lcddev.width,lcddev.height); 
 					sprintf((char*)msgbuf,"Scale");
 				}
-				LCD_ShowString(30,50,210,16,16,msgbuf);//ÏÔÊ¾ÌáÊ¾ÄÚÈÝ
+				LCD_ShowString(30,50,210,16,16,msgbuf);//show tips;
 				delay_ms(800); 	
-			}else if(sd_ok)//SD¿¨Õý³£²Å¿ÉÒÔÅÄÕÕ
+			}else if(sd_ok)//SD card need to be right;
 			{    
-				sw_sdcard_mode();	//ÇÐ»»ÎªSD¿¨Ä£Ê½
-				if(key==KEY0_PRES)	//BMPÅÄÕÕ
+				sw_sdcard_mode();	//switch to be sdcard mod;
+				if(key==KEY0_PRES)	//BMP mod;
 				{
-					camera_new_pathname(pname,0);//µÃµ½ÎÄ¼þÃû	
+					camera_new_pathname(pname,0);//create a file name;	
 					res=bmp_encode(pname,0,0,lcddev.width,lcddev.height,0);
-				}else if(key==KEY1_PRES)//JPGÅÄÕÕ
+				}
+				else if(key==KEY1_PRES)//JPG mod;
 				{
-					camera_new_pathname(pname,1);//µÃµ½ÎÄ¼þÃû	
+					camera_new_pathname(pname,1);
 					res=ov2640_jpg_photo(pname);
 					if(scale==0)
 					{
-						OV2640_ImageWin_Set((1600-lcddev.width)/2,(1200-lcddev.height)/2,lcddev.width,lcddev.height);//1:1ÕæÊµ³ß´ç
+						OV2640_ImageWin_Set((1600-lcddev.width)/2,(1200-lcddev.height)/2,lcddev.width,lcddev.height);
 						OV2640_OutSize_Set(lcddev.width,lcddev.height); 
 					}else 
 					{
-						OV2640_ImageWin_Set(0,0,1600,1200);	//È«³ß´çËõ·Å 
+						OV2640_ImageWin_Set(0,0,1600,1200);	 
 					}
 					OV2640_OutSize_Set(lcddev.width,lcddev.height); 					
 				}
-				sw_ov2640_mode();	//ÇÐ»»ÎªOV2640Ä£Ê½
-				if(res)//ÅÄÕÕÓÐÎó
+				sw_ov2640_mode();	//become OV2640 mod
+				if(res)// if error
 				{
-					Show_Str(30,130,240,16,"Ð´ÈëÎÄ¼þ´íÎó!",16,0);		 
+					Show_Str(30,130,240,16,"Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½!",16,0);		 
 				}else 
 				{
-					Show_Str(30,130,240,16,"ÅÄÕÕ³É¹¦!",16,0);
-					Show_Str(30,150,240,16,"±£´æÎª:",16,0);
+					Show_Str(30,130,240,16,"ï¿½ï¿½ï¿½Õ³É¹ï¿½!",16,0);
+					Show_Str(30,150,240,16,"ï¿½ï¿½ï¿½ï¿½Îª:",16,0);
 					Show_Str(30+42,150,240,16,pname,16,0);		    
-					BEEP=1;	//·äÃùÆ÷¶Ì½Ð£¬ÌáÊ¾ÅÄÕÕÍê³É
+					BEEP=1;	//beep bleep;
 					delay_ms(100);
+					BEEP=0;
 				}   			
-			}else //ÌáÊ¾SD¿¨´íÎó
+			}else //if SD card error
 			{					    
-				Show_Str(30,130,240,16,"SD¿¨´íÎó!",16,0);
-				Show_Str(30,150,240,16,"ÅÄÕÕ¹¦ÄÜ²»¿ÉÓÃ!",16,0);			    
+				Show_Str(30,130,240,16,"SDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!",16,0);
+				Show_Str(30,150,240,16,"ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½Ü²ï¿½ï¿½ï¿½ï¿½ï¿½!",16,0);			    
 			}   	
-			BEEP=0;			//¹Ø±Õ·äÃùÆ÷ 
-			if(key!=WKUP_PRES)delay_ms(1800);//·Ç³ß´çÇÐ»»,µÈ´ý1.8ÃëÖÓ
-			DCMI_Start(); 	//Í£Ö¹ÏÔÊ¾  
+			if(key!=WKUP_PRES)
+			delay_ms(1800);//not a mod for size switching;
+
+			DCMI_Start(); 	//start transfer;
 		} 
 		delay_ms(10);
-		i++;
-		if(i==20)//DS0ÉÁË¸.
+		i++;//twenty photos;
+		if(i==20)//DS0 flashing;.
 		{
 			i=0;
 			LED0=!LED0;
@@ -328,7 +334,13 @@ int main(void)
 }
 
 
+/*
+bmpdecode function which exists in bmp.h can be used to translate bmp photos;
+SD_ReadDisk function which exists in sdio_sdcard.h can be used to read SD card;
 
+now,the road between CPU and SD card has been created;
+and the road between CPU and camera has been created too;
+*/
 
 
 
