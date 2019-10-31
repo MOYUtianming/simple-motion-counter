@@ -66,12 +66,16 @@ int main(void)
 		key=KEY_Scan(0);
 		if(key==KEY0_PRES)//KEY0按下了
 		{
-			buf=mymalloc(0,512);		//申请内存
-			if(SD_ReadDisk(buf,0,1)==0)	//读取0扇区的内容
+			buf=mymalloc(0,512*10);		//申请内存
+			if(SD_ReadDisk(buf,0,10)==0)	//读取0扇区的内容
 			{	
 				LCD_ShowString(30,190,200,16,16,"USART1 Sending Data...");
 				printf("SECTOR 0 DATA:\r\n");
-				for(sd_size=0;sd_size<512;sd_size++)printf("%x ",buf[sd_size]);//打印0扇区数据    	   
+				for(sd_size=0;sd_size<512*10;sd_size++)
+				{
+					printf("%x ",buf[sd_size]);//打印0扇区数据 
+				}
+				   	   
 				printf("\r\nDATA ENDED\r\n");
 				LCD_ShowString(30,190,200,16,16,"USART1 Send Data Over!");
 			}
