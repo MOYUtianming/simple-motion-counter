@@ -1,7 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<windows.h>
-#define SIZE_PO 533206
+#define SIZE_PI 533206
+#define TEST test
+
+int test(int a);
+
 main()
 {
   /*
@@ -67,13 +71,13 @@ main()
     size=ftell(fp);
     printf("%ld\n",size);
     rewind(fp);
-    p=(char*)malloc(sizeof(char) * SIZE_PO);
-    fread(p,1,SIZE_PO,fp);
+    p=(char*)malloc(sizeof(char) * SIZE_PI);
+    fread(p,1,SIZE_PI,fp);
   int i=0;
   char *elem=p;
   FILE*fp2=NULL;
   fp2=fopen("text.bmp","w");
-  fwrite(p,sizeof(char),SIZE_PO,fp2);
+  fwrite(p,sizeof(char),SIZE_PI,fp2);
   /*
     for(i=0;i<5000;i++)
     {
@@ -82,5 +86,14 @@ main()
     }
   */
     free(p);
+  int x=TEST(1);
+  printf("%d\n",x);
+
   return 0;
+}
+
+int test(int a)
+{
+  a=a+1;
+  return a;
 }
