@@ -27,15 +27,23 @@
     #endif
     } FIL;
 ## other macro-functions
->
-    #define f_eof(fp) (((fp)->fptr == (fp)->fsize) ? 1 : 0)
+### #define f_eof(fp) (((fp)->fptr == (fp)->fsize) ? 1 : 0)
         find the end of a file;
-    #define f_error(fp) ((fp)->err)
+### #define f_error(fp) ((fp)->err)
         get error message;
-    #define f_tell(fp) ((fp)->fptr)
+### #define f_tell(fp) ((fp)->fptr)
         get file read/write pointer;
-    #define f_size(fp) ((fp)->fsize)
+### #define f_size(fp) ((fp)->fsize)
         get size of a file;
+## void myfree(u8 memx,void *ptr) 
+### memx的取值;
+    #define SRAMIN	 0		//内部内存池
+    #define SRAMEX   1		//外部内存池
+    #define SRAMCCM  2		//CCM内存池(仅CPU可以访问)
+## u32 my_mem_malloc(u8 memx,u32 size)  
+### memx的取值和myfree相同;
+    return 0xFFFFFFFF 代表错误;
+    其他返回值代表内存偏移地址;
 ## FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);				/* Open or create a file */
 >
     FRESULT f_open (
@@ -68,8 +76,11 @@
 >
     FRESULT f_lseek (
 	FIL* fp,		/* Pointer to the file object */
-	DWORD ofs		/* File pointer from top of file */
+	DWORD ofs		/* File pointer from top of file */  //offset;
     )
+
+
+
 ## FRESULT f_opendir (DIR* dp, const TCHAR* path);						/* Open a directory */
 >
     FRESULT f_opendir (
@@ -92,6 +103,9 @@
     FRESULT f_mkdir (
 	const TCHAR* path		/* Pointer to the directory path */
     )
+
+
+    
 ## FRESULT f_getlabel (const TCHAR* path, TCHAR* label, DWORD* vsn);	/* Get volume label */
 >
     FRESULT f_getlabel (
