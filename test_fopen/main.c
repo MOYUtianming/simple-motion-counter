@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-//#include"mylib.h"
+#include"mylib.h"
 //#include<windows.h>
 //#define SIZE_PI 533206
 //#define TEST test
@@ -11,24 +11,6 @@
 //void core(int*x,int*y,int*data);
 int main()
 {
-	FILE*data;
-  FILE*out;
-  data=fopen("PHOTO/PIC00001.bmp","r");
-  out =fopen("testpic/blueout","w");
-  char *p=NULL;
-    p=(char*)malloc(sizeof(char)*4);
-      fseek(data,0x22,SEEK_SET);
-      fread(p,1,4,data);
-      int i=0;
-        for(i=0;i<4;i++)
-        {
-          printf("%d: %x\n",i+1,(unsigned char)*p++);
-        }
-      //fseek(data,0,SEEK_SET);
-    free(p-4);
-    	return 0;
-}
-/*
   int tt[LEN*WID]={0};
   int u=0; 
      for(u=0;u<LEN*WID;u++)
@@ -46,6 +28,26 @@ int main()
   int xx=0,yy=0;
   core(&xx,&yy,tt,WID,LEN);
   printf("x=%d\ny=%d\n",xx,yy);
+  /*
+    FILE*data;
+    FILE*out;
+    data=fopen("PHOTO/PIC00001.bmp","r");
+    out =fopen("testpic/blueout","w");
+    char *p=NULL;
+      p=(char*)malloc(sizeof(char)*4);
+        fseek(data,0x22,SEEK_SET);
+        fread(p,1,4,data);
+        int i=0;
+          for(i=0;i<4;i++)
+          {
+            printf("%d: %x\n",i+1,(unsigned char)*p++);
+          }
+        //fseek(data,0,SEEK_SET);
+      free(p-4);
+  */
+    	return 0;
+}
+/*
 */
 /*
   srand(time(NULL));  
