@@ -5,7 +5,7 @@
         "label": "build main",
         "type": "shell",
         "command": "g++",
-        "args": ["-g", "-o", "main", "main.c"],
+        "args": ["-g", "-o", "main", "main.c","mylib.c"],
         "group": {
           "kind": "build",
           "isDefault": true

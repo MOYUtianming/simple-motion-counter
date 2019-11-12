@@ -1,5 +1,5 @@
 #include"mylib.h"
-
+#include<stdio.h>
 /*
    x = return parallel value;
    y = return vertical value;

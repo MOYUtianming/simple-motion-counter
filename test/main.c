@@ -1,92 +1,100 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<time.h>
 #include"mylib.h"
-
-#define HEI 800
-#define WID 480
-#define USINT16 unsigned short int
-#define DWORD   unsigned long  int
-#define UCAHR   unsigned char
-
-typedef struct tag_BITMAPFILEHEADER
-{
-  USINT16 bftype;     //type of file;
-  DWORD   bfsize;     //size of file;
-  DWORD   bfreserved; //reserved space;
-  DWORD   bfofbits;   //offset number(described by bytes)
-}BMPFH;
-
-typedef struct tag_BITMAPINFOHEADER
-{
-  DWORD   typsize;//number of bytes which are used to describe this type;
-  DWORD   biwid;
-  DWORD   bihei;//if this number is positive,it means this map's sequence is negative;
-  USINT16 biplanes;//always be 1;
-  USINT16 bitcount;//number of bytes which is used to describe a pixel;
-  DWORD   bicompression;//0 means without any compression.
-  DWORD   mapsize;//this map's size;
-  DWORD   XPP;
-  DWORD   YPP;
-  DWORD   clrused;//0 means use all color sheet;
-  DWORD   clrimptt;//useful color classes;
-}BMPIH;
 
 int main()
 {
-  /*Init code*/
-  BMPFH *fh;
-  fh=(BMPFH*)malloc(sizeof(BMPFH));
-  BMPIH *ih;
-  ih=(BMPIH*)malloc(sizeof(BMPIH));
-  FILE*map=NULL;
-  map=fopen("PHOTO/PIC00001.bmp","r");
-  USINT16*num=NULL;
-  num=(USINT16*)malloc(sizeof(USINT16));
-  UCAHR   *p0=NULL;
-  USINT16 *p1=NULL;
-  DWORD   *p2=NULL;
-  /*End of Init code*/
-  /*Loop code*/
-  fread(fh,sizeof(char),sizeof(BMPFH),map);
-  fseek(map,14,SEEK_SET);
-  fread(ih,sizeof(char),sizeof(BMPIH),map);
-  p0=(UCAHR*)fh;
-  for(int i=0;i<2;i++)
-  {
-    printf("%c\n",*(p0++));
-  }
+    FILE*pic=NULL;
+    FILE*out=NULL;
+    DWORD maskn[3]={0};//0xf800=R;0x07e0=G;0x001f=B;
+        pic=fopen("PHOTO/PIC00001.bmp","rb");
+            BITMAPFILEHEADER*fileh=NULL;
+            fileh=(BITMAPFILEHEADER*)malloc(sizeof(BITMAPFILEHEADER));
+                fread(fileh,1,sizeof(BITMAPFILEHEADER),pic);
+                WORD *pfile1=NULL;
+                DWORD*pfile2=NULL;
+                printf("head of fileheader :\n");
+                    pfile1=(WORD*)fileh;
+                    printf("%c",(*(pfile1)<<8)>>8);
+                    printf("%c\n",(*(pfile1++))>>8);
+                    pfile2=(DWORD*)(pfile1);
+                    printf("%d\n",*(pfile2++));
+                    pfile1=(WORD*)pfile2;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pfile1++));
+                    }
+                    pfile2=(DWORD*)(pfile1);
+                    printf("%d\n",*(pfile2)++);
+                printf("end  of fileheader.\n");
+            free(fileh);
 
-  p2=(DWORD*)p0;
-  for(int i=0;i<3;i++)
-  {
-    printf("%d\n",*(p2++));
-  }
-  printf("end of fh\n\n");
+            BITMAPINFOHEADER*infoh=NULL;
+            infoh=(BITMAPINFOHEADER*)malloc(sizeof(BITMAPINFOHEADER));
+                fread(infoh,1,sizeof(BITMAPINFOHEADER),pic);
+                WORD *pinfo1=NULL;
+                DWORD*pinfo2=NULL;
+                LONG *pinfo3=NULL;
+                printf("head of infoheader :");
+                    pinfo2=(DWORD*)infoh;
+                    printf("%d\n",*(pinfo2++));
+                    pinfo3=(LONG*)pinfo2;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pinfo3++));
+                    }
+                    pinfo1=(WORD*)pinfo3;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pinfo1++));
+                    }
+                    pinfo2=(DWORD*)pinfo1;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pinfo2++));
+                    }
+                    pinfo3=(LONG*)pinfo2;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pinfo3++));
+                    }
+                    pinfo2=(DWORD*)pinfo3;
+                    for(int i=0;i<2;i++)
+                    {
+                        printf("%d\n",*(pinfo2++));
+                    }
+                printf("end of infoheader.\n");
+            free(infoh);
 
-  p2=(DWORD*)ih;
-  for(int i=0;i<3;i++)
-  {
-    printf("%d\n",*(p2++));
-  }
-  p1=(USINT16*)p2;
-  for(int i=0;i<2;i++)
-  {
-    printf("%d\n",*(p1++));
-  }
-  p2=(DWORD*)p1;
-  for(int i=0;i<6;i++)
-  {
-    printf("%d\n",*(p2++));
-  }
-  printf("end of ih\n\n");
+            MASK*mask=NULL;
+            mask=(MASK*)malloc(sizeof(MASK));
+                fread(mask,1,sizeof(MASK),pic);
+                DWORD*pmask=NULL;
+                printf("head of mask: \n");
+                    pmask=(DWORD*)mask;
+                    for(int i=0;i<3;i++)
+                    {
+                        maskn[i]=*pmask;
+                        printf("NO.%d mask is: %x\n",i,*(pmask++));
+                    }
+                    //0xf800=R;0x07e0=G;0x001f=B;
+                printf("end of mask.\n");
+            free(mask);
 
-  fseek(map,2,SEEK_END);
-  fread(num,2,1,map);
-  printf("first num is %d\n",*num);
-  printf("%d\n",sizeof(long int));
-  /*End of Loop code*/
-  getchar();
-  return 0;
+            RGBQUAD*elem=NULL;
+            short int buffer[1]={0};
+                fread(buffer,1,16,pic);
+                int pelem[3]={0};
+                printf("head of rgb: \n");
+                    printf("%d\n",*(buffer));
+                    pelem[1]=((*buffer)&maskn[0])>>11;
+                    printf("%d\n",pelem[1]);
+                    pelem[2]=((*buffer)&maskn[1])>>5;
+                    printf("%d\n",pelem[2]);
+                    pelem[3]=(*buffer)&maskn[2];
+                    printf("%d\n",pelem[3]);
+                printf("end of mask.\n");
+        fclose(pic);
+     getchar();
+    return 0;
 }
-
