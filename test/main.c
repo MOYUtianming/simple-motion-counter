@@ -7,7 +7,7 @@ int main()
     FILE*pic=NULL;
     FILE*out=NULL;
     DWORD maskn[3]={0};//0xf800=R;0x07e0=G;0x001f=B;
-        pic=fopen("PHOTO/PIC00001.bmp","rb");
+        pic=fopen("PHOTO/PICr.bmp","rb");
             BITMAPFILEHEADER*fileh=NULL;
             fileh=(BITMAPFILEHEADER*)malloc(sizeof(BITMAPFILEHEADER));
                 fread(fileh,1,sizeof(BITMAPFILEHEADER),pic);
@@ -81,9 +81,8 @@ int main()
                 printf("end of mask.\n");
             free(mask);
 
-            RGBQUAD*elem=NULL;
-            short int buffer[1]={0};
-                fread(buffer,1,16,pic);
+            long buffer[1]={0};
+                fread(buffer,1,3,pic);
                 int pelem[3]={0};
                 printf("head of rgb: \n");
                     printf("%d\n",*(buffer));
