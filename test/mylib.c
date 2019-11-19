@@ -195,13 +195,3 @@ void core(int*x,int*y,BYTE*data,int WID,int LEN)
   *x=round(zx,m);
   *y=round(zy,m);
 }
-/*
-function : make the track of core;
-core = a core file;
-marko = the used mark file;
-*/
-int mark(FILE *core,FILE *marko,MARK *mrhead)
-{
-  MARK *markhead = (MARK*)malloc(sizeof(MARK));
-  
-}
