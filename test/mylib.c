@@ -7,8 +7,8 @@ void InitELEM(ELEM *input , DWORD size , WORD WID , WORD HEI)
 ELEM *in=input;
   for(;cont1<size;cont1++)
   {
-      in->x = ( ( cont1 - 1 ) % WID ) + 1;
-      in->y = ( ( cont1 - 1 ) / HEI ) + 1;
+      in->x = ( cont1 % WID ) + 1;
+      in->y = ( cont1 / HEI ) + 1;
       in->value_b=0;
       in->value_g=0;
       in->value_r=0;
