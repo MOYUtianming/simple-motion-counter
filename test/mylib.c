@@ -2,9 +2,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void InitELEM(ELEM *input , DWORD size , WORD WID , WORD HEI)
-{int cont1=0;
-ELEM *in=input;
+void InitELEMB(ELEM *input , DWORD size , WORD WID , WORD HEI)
+{
+  int cont1=0;
+  ELEM *in=input;
   for(;cont1<size;cont1++)
   {
       in->x = ( cont1 % WID ) + 1;
@@ -46,7 +47,7 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
     marker->hei = 800;
     marker->wid = 480;
     marker->mod = 0;
-
+    marker->offset_h=sizeof(MARK);
     if(state < 3)
     {
       fseek(base,offset,SEEK_SET);
@@ -82,6 +83,7 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           if(cont2 == 3)
           {
             outb->value_r++;
+            marker->cont_r++;
             outb++;
             cont2=0;
           }
@@ -109,6 +111,7 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           if(cont2 == 3)
           {
             outb->value_g++;
+            marker->cont_g++;
             outb++;
             cont2=0;
           }
@@ -136,6 +139,7 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           if(cont2 == 3)
           {
             outb->value_b++;
+            marker->cont_b++;
             outb++;
             cont2=0;
           }
@@ -146,6 +150,7 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           }
         }
       }
+      free(mid);
     end=(BYTE*)outb;
     *end=EOF;
 

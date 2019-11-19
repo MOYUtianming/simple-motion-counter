@@ -63,9 +63,6 @@ cont_* = the number of * core;
     WORD  wid;
     WORD  hei;
     WORD  offset_h;
-    WORD  offset_r;
-    WORD  offset_g;
-    WORD  offset_b;
     WORD  cont_r;
     WORD  cont_g;
     WORD  cont_b;
@@ -80,7 +77,7 @@ cont_* = the number of * core;
     BYTE value_g;
     BYTE value_b;
   }ELEM;
-void InitELEM(ELEM *input , DWORD size , WORD WID , WORD HEI);// Before use ELEM formally, you should use this function to init the memory;
+void InitELEMB(ELEM *input , DWORD size , WORD WID , WORD HEI);// Before use ELEM Block formally, you should use this function to init the memory;
 void core(int*x,int*y,BYTE*data,int WID,int LEN);//find the core of color block;
 int recg( BYTE state , DWORD size , WORD WID , WORD HEI , MASK *masks , FILE *base , FILE *out )//recognize special color element;
 #endif
