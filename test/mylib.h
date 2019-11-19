@@ -11,6 +11,7 @@
 #define syn 3
 
 #define abso(input)  (input>=0) ? input : (-input)
+#define round(mole,deno)    (int)(((float)mole/deno)+0.5)
 #pragma pack(1)
   typedef unsigned short WORD;
   typedef unsigned long  DWORD;
@@ -58,9 +59,9 @@ cont_* = the number of * core;
 */
   typedef struct tagMARK {
     DWORD dsize;
+    BYTE  mod;
     WORD  wid;
     WORD  hei;
-    BYTE  mod;
     WORD  offset_h;
     WORD  offset_r;
     WORD  offset_g;
@@ -69,7 +70,16 @@ cont_* = the number of * core;
     WORD  cont_g;
     WORD  cont_b;
   }MARK;
-
+  /*
+  final file : elem;
+  */
+  typedef struct tagELEM {
+    BYTE x;
+    BYTE y;
+    BYTE value_r;
+    BYTE value_g;
+    BYTE value_b;
+  }ELEM;
 void core(int*x,int*y,BYTE*data,int WID,int LEN);//find the core of color block;
-int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out );//recognize special color element;
+int recg( BYTE state , DWORD size , WORD WID , WORD HEI , MASK *masks , FILE *base , FILE *out )//recognize special color element;
 #endif

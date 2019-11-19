@@ -1,9 +1,21 @@
 #include"mylib.h"
 #include<stdio.h>
 #include<stdlib.h>
-
+void InitELEM(ELEM *input , DWORD size , WORD WID , WORD HEI)
+{int cont1=0;
+ELEM *in=input;
+  for(;cont1<size;cont1++)
+  {
+      in->x = cont1 % WID;
+      in->y = cont1 % HEI;
+      in->value_b=0;
+      in->value_g=0;
+      in->value_r=0;
+      in++;
+  }
+}
 /*
-function : recognize the color;
+function : recognize the color and mark the number of each ;
 state = 
 {
   R=0;
@@ -14,23 +26,31 @@ size = size of file data;(expressed by number of bytes)
 masks = the mask of the file;
 base = source data;
 out = output file;
+supplement : Since the size have been got I didn't take care of 4 byte alignment problem;
 */
 int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
 {
-  fseek(base,offset,SEEK_SET);
   WORD  comb1 = 0,comb2 = 0,comb3 = 0;
 
   DWORD cont1 = 0;
   BYTE  cont2 = 0;
   
-  BYTE  *outb = (BYTE*)malloc(size);
+  ELEM  *outb = (ELEM*)malloc(sizeof(ELEM)*round(size,2) + sizeof(BYTE));
+  ELEM  *outb_f = outb;
+  BYTE  *end = NULL;
   WORD  *mid  = (WORD*)malloc(size);
+  MARK  *marker = (MARK*)malloc(sizeof(MARK));
+  
+    marker->dsize=sizeof(MARK) + sizeof(ELEM)*round(size,2) + sizeof(BYTE);
+    marker->hei = 800;
+    marker->wid = 480;
+    marker->mod = 0;
+
     if(state < 3)
     {
+      fseek(base,offset,SEEK_SET);
       fread(mid , 1 , size , base);
-      comb1 = ((*mid++) & masks->red  )>>11;
-      comb2 = ((*mid++) & masks->green)>>5 ;
-      comb3 = ((*mid++) & masks->blue )    ;
+      rewind(base);
     }
     else
     {
@@ -38,6 +58,11 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
     }
       for(cont1 = 0 ; cont1 < size ; cont1++)
       {
+        comb1 = ((*mid++) & masks->red  )>>11;
+        comb2 = ((*mid++) & masks->green)>>5 ;
+        comb3 = ((*mid++) & masks->blue )    ;
+        
+
         if(state == R)
         {
           if(abso(comb1-18)<2)
@@ -51,6 +76,18 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           if(abso(comb3-15)<2)
           {
             cont2++;
+          }
+
+          if(cont2 == 3)
+          {
+            outb->value_r++;
+            outb++;
+            cont2=0;
+          }
+          else
+          {
+            outb++;
+            cont2=0;
           }
         }
         else if (state == G)
@@ -67,6 +104,18 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           {
             cont2++;
           }
+
+          if(cont2 == 3)
+          {
+            outb->value_g++;
+            outb++;
+            cont2=0;
+          }
+          else
+          {
+            outb++;
+            cont2=0;
+          }
         }
         else if (state ==B)
         {
@@ -82,15 +131,24 @@ int recg( BYTE state , DWORD size , MASK *masks , FILE *base , FILE *out )
           {
             cont2++;
           }
-        }
-        
-        if(cont2 == 3)
-        {
-          ++(*(outb++));
-          cont2=0;
+
+          if(cont2 == 3)
+          {
+            outb->value_b++;
+            outb++;
+            cont2=0;
+          }
+          else
+          {
+            outb++;
+            cont2=0;
+          }
         }
       }
-  rewind(base);
+    end=(BYTE*)outb;
+    *end=EOF;
+
+    fwrite(outb_f,1,sizeof(ELEM)*round(size,2) + sizeof(BYTE),out);
   return true;
 }
 
@@ -134,17 +192,16 @@ void core(int*x,int*y,BYTE*data,int WID,int LEN)
       }
     }
 
-  *x=(int)(((float)zx/m)+0.5);
-  *y=(int)(((float)zy/m)+0.5);
+  *x=round(zx,m);
+  *y=round(zy,m);
 }
-
 /*
 function : make the track of core;
-input = a core file;
+core = a core file;
 marko = the used mark file;
 */
-int mark(FILE *input,FILE *marko,MARK *mrhead)
+int mark(FILE *core,FILE *marko,MARK *mrhead)
 {
-  MARK *markhead;
+  MARK *markhead = (MARK*)malloc(sizeof(MARK));
   
 }
