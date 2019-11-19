@@ -1,13 +1,14 @@
 #include"mylib.h"
 #include<stdio.h>
 #include<stdlib.h>
+
 void InitELEM(ELEM *input , DWORD size , WORD WID , WORD HEI)
 {int cont1=0;
 ELEM *in=input;
   for(;cont1<size;cont1++)
   {
-      in->x = cont1 % WID;
-      in->y = cont1 % HEI;
+      in->x = ( ( cont1 - 1 ) % WID ) + 1;
+      in->y = ( ( cont1 - 1 ) / HEI ) + 1;
       in->value_b=0;
       in->value_g=0;
       in->value_r=0;
