@@ -1,12 +1,5 @@
 #include"mylib.h"
 
-MARK* InitMARKB(DWORD size,BITMAPINFOHEADER*ihh)
-{
-    MARK  *marker = (MARK*)malloc(sizeof(MARK));
-    marker->offset_h=sizeof(MARK);
-    return marker;
-}
-
 ELEM* InitELEMB(DWORD size , WORD HEI)//Init elem block;
 {
   int cont1=0;
@@ -14,8 +7,6 @@ ELEM* InitELEMB(DWORD size , WORD HEI)//Init elem block;
   ELEM *stack=elem;
   for(;cont1<size;cont1++)
   {
-      elem->x = ( cont1 % HEI ) + 1;
-      elem->y = ( cont1 / HEI ) + 1;
       elem->state_w=0;
       elem++;
   }
@@ -38,7 +29,7 @@ supplement : Since the size have been got I didn't take care of 4 byte alignment
 */
 BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM *out )
 {
-  WORD  comb1 = 0,comb2 = 0,comb3 = 0;
+  WORD  valur = 0,valug = 0,valub = 0;
 
   DWORD cont1 = 0;
   BYTE  cont2 = 0;
@@ -59,22 +50,22 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM
       for(cont1 = 0 ; cont1 < size ; cont1++)
       {
         fread(mid , 1 , 2 , base);
-        comb3 = ((*mid) & masks->red  );
-        comb2 = ((*mid) & masks->green)>>5 ;
-        comb1 = ((*mid) & masks->blue )>>11;
-        
+        valub = ((*mid) & masks->red  );
+        valug = ((*mid) & masks->green)>>5 ;
+        valur = ((*mid) & masks->blue )>>11;
+
         if(state == R)//correspond to the lower1~lower2 bit in state_w;
         {
-          if(abso(comb1-16)<ranger)
+          if(abso(valur-16)<ranger)
           {
-            tem=abso(comb1-16);
+            tem=abso(valur-16);
             cont2++;
           }
-          if(abso(comb2-28)<ranger)
+          if(abso(valug-28)<ranger)
           {
             cont2++;
           }
-          if(abso(comb3-20)<ranger)
+          if(abso(valub-20)<ranger)
           {
             cont2++;
           }
@@ -93,15 +84,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM
         }
         else if (state == G)//correspond to the lower3~lower4 bit in state_w;
         {
-          if(abso(comb1-19)<rangeg)
+          if(abso(valur-19)<rangeg)
           {
             cont2++;
           }
-          if(abso(comb2-46)<rangeg)
+          if(abso(valug-46)<rangeg)
           {
             cont2++;
           }
-          if(abso(comb3-17)<rangeg)
+          if(abso(valub-17)<rangeg)
           {
             cont2++;
           }
@@ -120,15 +111,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM
         }
         else if (state ==B)//correspond to the lower5~lower6 bit in state_w;
         {
-          if(abso(comb1-14)<rangeb)
+          if(abso(valur-14)<rangeb)
           {
             cont2++;
           }
-          if(abso(comb2-27)<rangeb)
+          if(abso(valug-27)<rangeb)
           {
             cont2++;
           }
-          if(abso(comb3-19)<rangeb)
+          if(abso(valub-19)<rangeb)
           {
             cont2++;
           }
@@ -149,7 +140,22 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM
       free(mid);
   return true;
 }
-
+/*
+void new_pathname(BYTE *pname,BYTE mode)
+{	 
+	BYTE res;					 
+	static WORD index=0;
+  FILE *temp;
+	while(index<0XFFFF)
+	{
+		if(mode==0)sprintf((char*)pname,"0:PHOTO/PIC%05d.bmp",index);
+		else sprintf((char*)pname,"0:MARK/MARK%05d.mark",index);
+		res=f_open(temp,(const char*)pname,"r");//³¢ÊÔ´ò¿ªÕâ¸öÎÄ¼þ
+		if(res==NULL)break;		//¸ÃÎÄ¼þÃû²»´æÔÚ=ÕýÊÇÎÒÃÇÐèÒªµÄ.
+		index++;
+	}
+} 
+*/
 /*
 function : find the core of color block;
 x = return parallel value;
@@ -158,35 +164,44 @@ data = input data;
 WID = input width;
 LEN = input length;
 */
-void core(int*x,int*y,BYTE*data,int WID,int LEN)
+void core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state)
 {
   int i=0,j=0;
-  BYTE *dat=data;
+  FILE *markerb=marker;
+  BYTE dat=0;
+  BYTE datr=0;
+  BYTE datg=0;
+  BYTE datb=0;
   int m=0;
-    for(j=0;j<LEN;j++)
-    {
-      for(i=0;i<WID;i++)
-      {
-        m+=*(dat++);
-      }
-    }
-    dat=data;//SUPPLEMENT:you can't use data calculate directly;
   int zx=0;
+  int zy=0;
+  //
     for(j=0;j<LEN;j++)
     {
       for(i=0;i<WID;i++)
       {
-        zx+=(i+1)*(*(dat++));
-      }
-    }
-    dat=data;
-
-  int zy=0;
-   for(j=0;j<LEN;j++)
-    {
-      for(i=0;i<WID;i++)
-      {
-        zy+=(j+1)*(*(dat++));
+        fread(&dat,1,1,markerb);
+        datr=dat&maskR;
+        datg=(dat&maskG)>>2;
+        datb=(dat&maskB)>>4;
+        if(state == R)
+        {
+          m+=datr;
+          zx+=(i+1)*datr;
+          zy+=(j+1)*datr;
+        }
+        else if(state == G)
+        {
+          m+=datg;
+          zx+=(i+1)*datg;
+          zy+=(j+1)*datg;
+        }
+        else if(state == B)
+        {
+          m+=datb;
+          zx+=(i+1)*datb;
+          zy+=(j+1)*datb;
+        }
       }
     }
 

@@ -20,71 +20,76 @@ int main()
     MASK*masker = (MASK*)malloc(sizeof(MASK));//stack volume 3;
         fread(masker,1,sizeof(MASK),filet);
 
-    MARK*outa=NULL;
-        outa=InitMARKB(size,ih);// stack volume 4;
-
     ELEM*outb=NULL;
         outb=InitELEMB(size,ih->biHeight);//stack volume 5;
-                recg(R,ih,masker,filet,outb);
+               // recg(R,ih,masker,filet,outb);
                 recg(G,ih,masker,filet,outb);
-                recg(B,ih,masker,filet,outb);
+                //recg(B,ih,masker,filet,outb);
                 /*track code site*/
-
-    FILE*fileo=fopen("./MARK/mark1.mark","wb");
-        fwrite(outa,1,sizeof(MARK),fileo);
-        fclose(fileo);
-        fileo=fopen("./MARK/mark1.mark","ab");
+    //create a mark file;
+    FILE*fileo=NULL;
+        fileo=fopen("./MARK/mark1.mark","wb");
         fwrite(outb,1,sizeof(ELEM)*size,fileo);
         fclose(fileo);
     fclose(filet);
-
-
+    //output experimental echo bmpfile;
+    //open mark file ;
     FILE*file1=fopen("./MARK/mark1.mark","rb");
-    MARK*buf1=(MARK*)malloc(sizeof(MARK));
-    fread(buf1,1,sizeof(MARK),file1);
+    //read bmp file head and write in the output file;
     FILE*file2=fopen("./PHOTO/PIC00002.bmp","rb");
     BYTE*buf2=(BYTE*)malloc(66);
-    fread(buf2,1,66,file2);
-    fclose(file2);
-    file2=fopen("./PHOTO/echorb.bmp","wb");
-    fwrite(buf2,1,66,file2);
+        fread(buf2,1,66,file2);
+        fclose(file2);
 
+        file2=fopen("./PHOTO/echorb.bmp","wb");
+        fwrite(buf2,1,66,file2);
     fclose(file2);
+    //write echo file elements;
     file2=fopen("./PHOTO/echorb.bmp","ab");
     ELEM*buf3=(ELEM*)malloc(sizeof(ELEM));
-    WORD *buf4=(WORD*)malloc(sizeof(WORD)*480*800);
-    WORD *point1=buf4;
+    WORD *buf4=(WORD*)malloc(sizeof(WORD));
     for(int i=0;i<480*800;i++)
     {
     
         fread(buf3,1,sizeof(ELEM),file1);
         if(buf3->state_w&maskB>0)
         {
-            *(point1++)=0;
+            *(buf4)=0;
+            printf("b :%d\n",buf3->state_w&maskB);
         }
         else
         {
-            *(point1++)=0XFFFF;
+            *(buf4)=0XFFFF;
         }
-    
+        fwrite(buf4,1,sizeof(WORD),file2);
     }
-    fwrite(buf4,1,sizeof(WORD)*480*800,file2);
     fclose(file2);
-
+    //find core block;
+    WORD x , y;
+    //rewind(file1);
+    //core(&x,&y,file1,480,800,R);
+    //printf("R :x = %d , y = %d\n",x,y);
+    rewind(file1);
+    core(&x,&y,file1,480,800,G);
+    printf("G :x = %d , y = %d\n",x,y);
+    //rewind(file1);
+    //core(&x,&y,file1,480,800,B);
+    //printf("B :x = %d , y = %d\n",x,y);
 
 //track saving block;
     TRACKH *theader=NULL;
     TRACKE *thead=NULL;
+    theader=(TRACKH*)malloc(sizeof(TRACKH));
     CreateH(&thead);
     thead->x=0;
     thead->y=0;
     InitTRACKE(thead);
     InitTRACKH(theader,thead);
-    //use for loop here.
+    //use 'for' loop here.
     CreateTRACKE(&thead,1);
-    //test function
+    //test function.
     int i=0;
-    PTRACKE(thead,TRACKELength(thead));
+    //PTRACKE(thead,TRACKELength(thead));
 
     getchar();
     return 0;

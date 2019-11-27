@@ -212,3 +212,39 @@ int main()
     getchar();
     return 0;
 }
+//core original version
+void core(int*x,int*y,BYTE*data,int WID,int LEN,BYTE state)
+{
+  int i=0,j=0;
+  BYTE *dat=data;
+  int m=0;
+    for(j=0;j<LEN;j++)
+    {
+      for(i=0;i<WID;i++)
+      {
+        m+=*(dat++);
+      }
+    }
+    dat=data;//SUPPLEMENT:you can't use data calculate directly;
+  int zx=0;
+    for(j=0;j<LEN;j++)
+    {
+      for(i=0;i<WID;i++)
+      {
+        zx+=(i+1)*(*(dat++));
+      }
+    }
+    dat=data;
+
+  int zy=0;
+   for(j=0;j<LEN;j++)
+    {
+      for(i=0;i<WID;i++)
+      {
+        zy+=(j+1)*(*(dat++));
+      }
+    }
+
+  *x=round(zx,m);
+  *y=round(zy,m);
+}
