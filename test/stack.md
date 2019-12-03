@@ -336,3 +336,37 @@ void core(int*x,int*y,BYTE*data,int WID,int LEN,BYTE state)
     return 0;
 【END】
 
+    BYTE buf1[2]={0};
+        //fread(buf1,1,iLineByteCnt,filet);
+        for(int i=0;i<100;i++)
+        {
+            for(int i=0;i<2714;i++)
+            {
+                fwrite(buf,1,3,fileo);
+            }
+            fwrite(buf1,1,2,fileo);
+        }
+
+```
+    //output a MARK file and a test.bmp file.
+    FILE*filet=fopen("./photograph/TWN.bmp","rb");
+    BITMAPFILEHEADER*fh = (BITMAPFILEHEADER*)malloc(sizeof(BITMAPFILEHEADER));//stack volume 1;
+        fread(fh,1,sizeof(BITMAPFILEHEADER),filet);
+    BITMAPINFOHEADER*ih = (BITMAPINFOHEADER*)malloc(sizeof(BITMAPINFOHEADER));//stack volume 2;
+        fread(ih,1,sizeof(BITMAPINFOHEADER),filet);
+
+    int iLineByteCnt = (((ih->biWidth * ih->biBitCount) + 31) >> 5) << 2;
+    int skip = 4 - (((ih->biWidth * ih->biBitCount))>>3) & 3;
+    DWORD length = sizeof(ELEM)*iLineByteCnt*ih->biHeight;
+    DWORD vlength = (length-ih->biHeight*2);
+    ELEM *out = (ELEM*)malloc(vlength*sizeof(ELEM));
+    BYTE *pname = (BYTE*)malloc(21);
+    new_pathname(pname,1);
+    printf((const char*)pname);
+    FILE *fileo = fopen((const char*)pname,"wb");
+        recg(R,ih,filet,out);
+        fwrite(out,1,vlength,fileo);
+        fclose(fileo);
+        free(out);
+    mark2pic(ih,fh,(const char*)pname);
+```

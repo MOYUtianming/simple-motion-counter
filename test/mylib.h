@@ -31,22 +31,27 @@
     DWORD bfOffBits;
   } BITMAPFILEHEADER;
 
-  typedef struct tagMASK {
+  typedef struct tagPIXEL {
     DWORD blue;
     DWORD green;
     DWORD red;
-  } MASK;
+  } PIXEL;
   /*
   final file : elem;
   sizeof(ELEM)=5;
   */
   typedef struct tagELEM {
-    BYTE state_w;//R=bit1~2,G=bit3~4,B=bit5~6;
+    BYTE state_r;//R=bit1~2,G=bit3~4,B=bit5~6;
+    BYTE state_g;
+    BYTE state_b;
   }ELEM;
 
 #pragma pack(4)
-
+void    count(BITMAPINFOHEADER*ih,int*iLineByteCnt,int*skip);
 ELEM*   InitELEMB(DWORD size , WORD HEI);// Before use ELEM Block formally, you should use this function to init the memory;
 void    core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state);//find the core of color block;
-BYTE    recg( BYTE state , BITMAPINFOHEADER*sizer , MASK *masks , FILE *base , ELEM *out );//recognize special color element;
+BYTE    recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out );//recognize special color element;
+void    new_pathname(BYTE *pname,BYTE mode);
+//test functions.
+void    mark2pic(BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pname);
 #endif
