@@ -25,7 +25,9 @@ int main()
         fileo = fopen((const char*)pnamem,"wb");
             recg(R,ih,filet,out);
             fwrite(out,1,vlength*sizeof(ELEM),fileo);
-            *pnamemr = *pnamem;
+            int i=0;
+            i=strlen((const char*)pnamem);
+            strcpy((char*)pnamemr,(const char*)pnamem);
         fclose(fileo);
     //G;
         fseek(filet,fh->bfOffBits,SEEK_SET);
@@ -33,7 +35,7 @@ int main()
         fileo = fopen((const char*)pnamem,"wb");
             recg(G,ih,filet,out);
             fwrite(out,1,vlength*sizeof(ELEM),fileo);
-            *pnamemg = *pnamem;
+            strcpy((char*)pnamemg,(const char*)pnamem);
         fclose(fileo);
     //B;
         fseek(filet,fh->bfOffBits,SEEK_SET);
@@ -41,7 +43,7 @@ int main()
         fileo = fopen((const char*)pnamem,"wb");
             recg(B,ih,filet,out);
             fwrite(out,1,vlength*sizeof(ELEM),fileo);
-            *pnamemb = *pnamem;
+            strcpy((char*)pnamemb,(const char*)pnamem);
         fclose(fileo);
     free(out);
     //free(pnamem);
@@ -54,16 +56,19 @@ int main()
             mark2pic(B,ih,fh,(const char*)pnamemb,(const char*)pnameb);
 
 // core block;
+//R;
     WORD x=0,y=0;
     FILE*markf=NULL;
     markf = fopen((const char*)pnamemr,"rb");
         core(&x,&y,markf,WIDD,HEII,R);
         printf("R  x=%d , y=%d\n",x,y);
     fclose(markf);
+//G;
     markf = fopen((const char*)pnamemg,"rb");
         core(&x,&y,markf,WIDD,HEII,G);
         printf("G  x=%d , y=%d\n",x,y);
     fclose(markf);
+//B;
     markf = fopen((const char*)pnamemb,"rb");
         core(&x,&y,markf,WIDD,HEII,B);
         printf("B  x=%d , y=%d\n",x,y);
