@@ -32,16 +32,16 @@
   } BITMAPFILEHEADER;
 
   typedef struct tagPIXEL {
-    DWORD blue;
-    DWORD green;
-    DWORD red;
+    BYTE blue;
+    BYTE green;
+    BYTE red;
   } PIXEL;
   /*
   final file : elem;
-  sizeof(ELEM)=5;
+  sizeof(ELEM)=3;
   */
   typedef struct tagELEM {
-    BYTE state_r;//R=bit1~2,G=bit3~4,B=bit5~6;
+    BYTE state_r;
     BYTE state_g;
     BYTE state_b;
   }ELEM;
@@ -53,5 +53,5 @@ void    core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state);//find the 
 BYTE    recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out );//recognize special color element;
 void    new_pathname(BYTE *pname,BYTE mode);
 //test functions.
-void    mark2pic(BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pname);
+void    mark2pic(BYTE state, BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pnamem,const char*pnameb);
 #endif

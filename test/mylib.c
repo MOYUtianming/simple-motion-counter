@@ -37,17 +37,15 @@ supplement : Since the size have been got I didn't take care of 4 byte alignment
 BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
 {
   BYTE  valur = 0,valug = 0,valub = 0;
-  int liner=0,skip=0;
-  count(sizer,&liner,&skip);
   DWORD cont1 = 0;
   BYTE  cont2 = 0;
   DWORD size=sizer->biWidth*sizer->biHeight;
   ELEM  *outb = out;
   
-  ELEM  *outb_f = outb;
-  BYTE *mid = (BYTE*)malloc(3);
-  BYTE *midd = mid;
+  PIXEL *mid = (PIXEL*)malloc(sizeof(PIXEL));
+  PIXEL *midd = mid;
   DWORD contt =0;
+  int contter=0;
     if(state < 3)
     {
       fseek(base,offsett,SEEK_SET);
@@ -56,29 +54,25 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
     {
       return error;
     }
-      for(cont1 = 0 ; cont1 < (((liner-skip)/3)*sizer->biHeight + sizer->biHeight) ; cont1++)
+      for(cont1 = 0 ; cont1 < size ; cont1++)
       {
-        if(cont1 % liner == (liner-2))
-        {
-          fseek(base,skip,SEEK_CUR);
-        }
-          fread(mid , 1 , 3 , base);
+          fread(midd , 1 , 3 , base);
         
-        valub = *mid;
-        valug = *(++mid);
-        valur = *(++mid);
-        mid = midd;
+        valub = midd->blue;
+        valug = midd->green;
+        valur = midd->red;
+        midd = mid;
         if(state == R)//correspond to the lower1~lower2 bit in state_w;
         {
-          if(abso(valur-standard1r)<ranger)
+          if(abso(valur-standardrr)<ranger)
           {
             cont2++;
           }
-          if(abso(valug-standard1g)<ranger)
+          if(abso(valug-standardrg)<ranger)
           {
             cont2++;
           }
-          if(abso(valub-standard1b)<ranger)
+          if(abso(valub-standardrb)<ranger)
           {
             cont2++;
           }
@@ -97,15 +91,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
         }
         else if (state == G)//correspond to the lower3~lower4 bit in state_w;
         {
-          if(abso(valur-19)<rangeg)
+          if(abso(valur-standardgr)<rangeg)
           {
             cont2++;
           }
-          if(abso(valug-46)<rangeg)
+          if(abso(valug-standardgg)<rangeg)
           {
             cont2++;
           }
-          if(abso(valub-17)<rangeg)
+          if(abso(valub-standardgb)<rangeg)
           {
             cont2++;
           }
@@ -124,15 +118,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
         }
         else if (state ==B)//correspond to the lower5~lower6 bit in state_w;
         {
-          if(abso(valur-14)<rangeb)
+          if(abso(valur-standardbr)<rangeb)
           {
             cont2++;
           }
-          if(abso(valug-27)<rangeb)
+          if(abso(valug-standardbg)<rangeb)
           {
             cont2++;
           }
-          if(abso(valub-19)<rangeb)
+          if(abso(valub-standardbb)<rangeb)
           {
             cont2++;
           }
@@ -156,22 +150,32 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
 
 void new_pathname(BYTE *pname,BYTE mode)
 {	 					 
-	static WORD index=0;
   FILE *temp;
-	while(index<0XFFFF)
-	{
-		if(mode == BMP)
-      sprintf((char*)pname,"./PHOTO/PIC%05d.bmp",index);
-		else if(mode == MARKF)
-      sprintf((char*)pname,"./MARK/MARK%05d.mark",index);
+	static WORD indexb = 0;
+  static WORD indexm = 0;
 
-		temp = fopen((const char*)pname,"r");
-		if(temp==NULL)break;
-		index++;
-    if(mode == CLR)
-      index = 0;
-      break;
-	}
+  if(mode == BMP)
+    while(indexb<0XFFFF)
+    {
+        sprintf((char*)pname,"./PHOTO/PIC%05d.bmp",indexb);
+
+      temp = fopen((const char*)pname,"r");
+      if(temp==NULL)break;
+      indexb++;
+    }
+  else if(mode == MARKF)
+      while(indexb<0XFFFF)
+    {
+      sprintf((char*)pname,"./MARK/MARK%05d.mark",indexm);
+
+      temp = fopen((const char*)pname,"r");
+      if(temp==NULL)break;
+      indexm++;
+    }
+  
+  if(mode == CLR)
+    indexb = 0;
+    indexm = 0;
 } 
 
 /*
@@ -184,19 +188,19 @@ LEN = input length;
 */
 void core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state)
 {
-  int i=0,j=0;
+  int i=0,j=0,q=0;
   FILE *markerb=marker;
   ELEM *dat = (ELEM*)malloc(sizeof(ELEM));
   BYTE datr=0;
   BYTE datg=0;
   BYTE datb=0;
-  int M00=0;
-  int M10=0;
-  int M01=0;
-  //
-    for(j=0;j<LEN;j++)
+  double M00=0;
+  double M10=0;
+  double M01=0;
+  
+    for(i=0;i<LEN;i++)
     {
-      for(i=0;i<WID;i++)
+      for(j=0;j<WID;j++)
       {
         fread(dat,1,3,markerb);
         datr=dat->state_r;
@@ -225,51 +229,77 @@ void core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state)
 
   *x=round(M10,M00);
   *y=round(M01,M00);
+  free(dat);
 }
 
-void mark2pic(BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pname)
+void mark2pic(BYTE state, BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pnamem,const char*pnameb)
 {
-  int iLineByteCnt=0,skip=0;
-  count(sizer,&iLineByteCnt,&skip);
-  int length=sizeof(ELEM)*iLineByteCnt*sizer->biHeight;
-    ELEM*buf3=(ELEM*)malloc(sizeof(ELEM)*(length-sizer->biHeight*2));
+    int i=0,j=0,k=0; 
+  //count(sizer,&iLineByteCnt,&skip);
+  int length=sizer->biWidth*sizer->biHeight;
+    ELEM*buf3=(ELEM*)malloc(length*sizeof(ELEM));
     ELEM*buf3_f=buf3;
     BYTE buf4[2]={0xff,0};
-    FILE *filet2 = NULL;
+    FILE *filet = NULL;
     FILE *fileo=NULL;
-        fileo = fopen("./PHOTO/test.bmp","wb");
+        filet = fopen(pnamem,"rb");
+        fileo = fopen(pnameb,"wb");
         fclose(fileo);
-        fileo = fopen("./PHOTO/test.bmp","ab");
-        filet2 = fopen(pname,"rb");
+        fileo = fopen(pnameb,"ab");
 
         fwrite(head,1,sizeof(BITMAPFILEHEADER),fileo);
         fwrite(sizer,1,sizeof(BITMAPINFOHEADER),fileo);
 
-        fread(buf3,1,sizeof(ELEM)*(length-sizer->biHeight*2),filet2);
-        for(int i=0;i<(((iLineByteCnt-skip)/3)*sizer->biHeight + sizer->biHeight);i++)
+        fread(buf3,1,sizeof(ELEM)*(length),filet);
+        for(i=0;i<(sizer->biWidth*sizer->biHeight);i++)
         {
-            if(i%iLineByteCnt == iLineByteCnt-2)
+          if(state == R)
+            if(buf3->state_r>0)
             {
-                for(int j=0;j<2;j++)
-                fwrite((buf4+1),1,1,fileo);
+                for(k=0;k<3;k++)
+                {
+                  fwrite(buf4,1,1,fileo);
+                }
             }
             else
             {
-                if(buf3_f->state_r>0)
+                for(k=0;k<3;k++)
                 {
-                    for(int i=0;i<3;i++)
-                    {
-                    fwrite(buf4,1,1,fileo);
-                    }
+                  fwrite((buf4+1),1,1,fileo);
                 }
-                else
-                {
-                    for(int i=0;i<3;i++)
-                    {
-                    fwrite((buf4+1),1,1,fileo);
-                    }
-                }
-                buf3_f++;
             }
+            else if(state == G)
+              if(buf3->state_g>0)
+              {
+                  for(k=0;k<3;k++)
+                  {
+                  fwrite(buf4,1,1,fileo);
+                  }
+              }
+              else
+              {
+                  for(k=0;k<3;k++)
+                  {
+                  fwrite((buf4+1),1,1,fileo);
+                  }
+              }
+            else if(state == B)
+              if(buf3->state_b>0)
+              {
+                  for(k=0;k<3;k++)
+                  {
+                  fwrite(buf4,1,1,fileo);
+                  }
+              }
+              else
+              {
+                  for(k=0;k<3;k++)
+                  {
+                  fwrite((buf4+1),1,1,fileo);
+                  }
+              }
+          buf3++;
         }
+        fclose(filet);
+        fclose(fileo);
 }

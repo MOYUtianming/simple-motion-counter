@@ -4,12 +4,25 @@
 #define error 0
 #define true 1
 #define offsett 54
-#define rangeb 1
-#define ranger 5
-#define rangeg 1
-#define standard1b 34
-#define standard1g 34
-#define standard1r 139
+
+#define rangeb 30
+#define ranger 30
+#define rangeg 25
+
+#define standardrb 75
+#define standardrg 61
+#define standardrr 166
+
+#define standardgb 123
+#define standardgg 195
+#define standardgr 163
+
+#define standardbb 146
+#define standardbg 64
+#define standardbr 25
+
+#define WIDD 1280
+#define HEII 720
 
 //Finite State Machine;
 #define R 0
