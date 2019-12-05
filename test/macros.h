@@ -32,12 +32,13 @@
 
 #define BMP 0
 #define MARKF 1
-#define CLR 2
+#define PHOTO 2
+#define CLR 3
 
 #define abso(input)  abs(input)
 #define round(mole,deno)    (int)(((float)mole/deno)+0.5)
 
-typedef unsigned short WORD;
+typedef unsigned int   WORD;
 typedef unsigned long  DWORD;
 typedef long           LONG;
 typedef unsigned char  BYTE;

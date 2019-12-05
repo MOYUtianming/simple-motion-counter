@@ -148,34 +148,61 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
   return true;
 }
 
-void new_pathname(BYTE *pname,BYTE mode)
+void new_pathname(char *pname,BYTE mode)
 {	 					 
   FILE *temp;
-	static WORD indexb = 0;
-  static WORD indexm = 0;
-
+	static int indexb = 0;
+  static int indexm = 0;
+  static int indexp = 1;
   if(mode == BMP)
     while(indexb<0XFFFF)
     {
-        sprintf((char*)pname,"./PHOTO/PIC%05d.bmp",indexb);
+        sprintf(pname,"./PHOTO/PIC%05d.bmp",indexb);
 
       temp = fopen((const char*)pname,"r");
-      if(temp==NULL)break;
-      indexb++;
+      if(temp==NULL)
+      {
+        fclose(temp);
+        indexb++;
+        break;
+      }
     }
   else if(mode == MARKF)
-      while(indexb<0XFFFF)
+      while(indexm<0XFFFF)
     {
-      sprintf((char*)pname,"./MARK/MARK%05d.mark",indexm);
+      sprintf(pname,"./MARK/MARK%05d.mark",indexm);
 
       temp = fopen((const char*)pname,"r");
-      if(temp==NULL)break;
-      indexm++;
+      if(temp==NULL)
+      {
+        fclose(temp);
+        indexm++;
+        break;
+      }
     }
-  
-  if(mode == CLR)
-    indexb = 0;
-    indexm = 0;
+  else if(mode == PHOTO)
+      while(indexp<0XFFFFFFFF)
+    {
+      sprintf(pname,"./photograph/%d.bmp",indexp);
+      temp = fopen((const char*)pname,"r");
+      indexp++;
+      if(temp!=NULL)
+      {
+        fclose(temp);
+        break;
+      }
+      else if(temp == NULL)
+      {
+        pname = error;
+        break;
+      }
+      
+    }
+  else if(mode == CLR)
+    {
+      indexb = 0;
+      indexm = 0;
+    }
 } 
 
 /*

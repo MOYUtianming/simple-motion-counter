@@ -51,7 +51,7 @@ void    count(BITMAPINFOHEADER*ih,int*iLineByteCnt,int*skip);
 ELEM*   InitELEMB(DWORD size , WORD HEI);// Before use ELEM Block formally, you should use this function to init the memory;
 void    core(WORD*x,WORD*y,FILE*marker,WORD WID,WORD LEN,BYTE state);//find the core of color block;
 BYTE    recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out );//recognize special color element;
-void    new_pathname(BYTE *pname,BYTE mode);
+void    new_pathname(char *pname,BYTE mode);
 //test functions.
 void    mark2pic(BYTE state, BITMAPINFOHEADER*sizer,BITMAPFILEHEADER*head,const char*pnamem,const char*pnameb);
 #endif
