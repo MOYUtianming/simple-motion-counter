@@ -83,7 +83,7 @@ int main()
 // core block;
         //R;
             WORD x=0,y=0;
-            char *counter = (char*)malloc(37);
+            char *counter = (char*)malloc(39);
             WORD leng = 0;
             FILE*markf=NULL;
             markf = fopen((const char*)pnamemr,"rb");
