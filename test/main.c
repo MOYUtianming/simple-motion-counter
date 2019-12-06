@@ -6,13 +6,13 @@
 #include<string.h>
 int main()
 {
+/*
     int temp=0;
     char porigin[22] = {0};
     FILE*fileb=NULL;
     FILE*fileE=NULL,*fileER = NULL,*fileEG = NULL,*fileEB = NULL;
     new_pathname(porigin,PHOTO);
     fileb = fopen((const char*)porigin,"rb");
-
 
     fileE = fopen("./count.md","w");
     fileER = fopen("./countR.md","w");
@@ -22,9 +22,12 @@ int main()
     fclose(fileER);
     fclose(fileEG);
     fclose(fileEB);
+*/
+/*
         while(fileb!=NULL)
         {
-            
+*/
+/*
 //recg block;
             BITMAPFILEHEADER*fh = (BITMAPFILEHEADER*)malloc(sizeof(BITMAPFILEHEADER));//stack volume 1;
                 fread(fh,1,sizeof(BITMAPFILEHEADER),fileb);
@@ -62,19 +65,21 @@ int main()
                     strcpy((char*)pnamemb,(const char*)pnamem);
                 fclose(fileo);
             free(out);
-            /*
+*/
+/*
+//transfer mark to picture;
                     new_pathname(pnameb,BMP);
                     mark2pic(R,ih,fh,(const char*)pnamemr,(const char*)pnameb);
                     new_pathname(pnameb,BMP);
                     mark2pic(G,ih,fh,(const char*)pnamemg,(const char*)pnameb);
                     new_pathname(pnameb,BMP);
                     mark2pic(B,ih,fh,(const char*)pnamemb,(const char*)pnameb);
-            */
-           /*
+           
             free(fh);
             free(ih);
             free(pnamem);// the real length of a "(word)" is strlen("(word)")+1,the 1 is the length of ending mark;
-            */
+*/
+/*
 // core block;
         //R;
             WORD x=0,y=0;
@@ -121,13 +126,18 @@ int main()
         free(pnamemr);
         free(pnamemg);
         free(pnamemb);
-
+*/
+/*
 //open new original file;
             if(fileb!=NULL)
                 printf("the %s file has been calculated\n",porigin);
             new_pathname(porigin,PHOTO);
             fileb = fopen((const char*)porigin,"rb");
+*/
+/*
         }
+*/
+
     getchar();
     return 0;
 }
