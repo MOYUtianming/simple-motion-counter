@@ -1,861 +1,861 @@
-./photograph/1.bmp_R  x=422 , y=619
-./photograph/1.bmp_G  x=369 , y=586
-./photograph/1.bmp_B  x=417 , y=531
-./photograph/2.bmp_R  x=421 , y=618
-./photograph/2.bmp_G  x=392 , y=590
-./photograph/2.bmp_B  x=415 , y=530
-./photograph/3.bmp_R  x=421 , y=618
-./photograph/3.bmp_G  x=399 , y=589
-./photograph/3.bmp_B  x=416 , y=530
-./photograph/4.bmp_R  x=424 , y=619
-./photograph/4.bmp_G  x=364 , y=607
-./photograph/4.bmp_B  x=417 , y=530
-./photograph/5.bmp_R  x=422 , y=618
-./photograph/5.bmp_G  x=412 , y=592
-./photograph/5.bmp_B  x=417 , y=529
-./photograph/6.bmp_R  x=422 , y=619
-./photograph/6.bmp_G  x=380 , y=598
-./photograph/6.bmp_B  x=418 , y=529
-./photograph/7.bmp_R  x=425 , y=618
-./photograph/7.bmp_G  x=411 , y=581
-./photograph/7.bmp_B  x=423 , y=529
-./photograph/8.bmp_R  x=427 , y=618
-./photograph/8.bmp_G  x=374 , y=603
-./photograph/8.bmp_B  x=428 , y=529
-./photograph/9.bmp_R  x=428 , y=618
-./photograph/9.bmp_G  x=423 , y=583
-./photograph/9.bmp_B  x=433 , y=529
-./photograph/10.bmp_R  x=431 , y=618
-./photograph/10.bmp_G  x=408 , y=582
-./photograph/10.bmp_B  x=440 , y=529
-./photograph/11.bmp_R  x=433 , y=618
-./photograph/11.bmp_G  x=405 , y=586
-./photograph/11.bmp_B  x=449 , y=531
-./photograph/12.bmp_R  x=437 , y=619
-./photograph/12.bmp_G  x=432 , y=589
-./photograph/12.bmp_B  x=460 , y=532
-./photograph/13.bmp_R  x=440 , y=619
-./photograph/13.bmp_G  x=388 , y=578
-./photograph/13.bmp_B  x=470 , y=535
-./photograph/14.bmp_R  x=445 , y=621
-./photograph/14.bmp_G  x=440 , y=585
-./photograph/14.bmp_B  x=481 , y=539
-./photograph/15.bmp_R  x=448 , y=622
-./photograph/15.bmp_G  x=431 , y=591
-./photograph/15.bmp_B  x=491 , y=544
-./photograph/16.bmp_R  x=451 , y=624
-./photograph/16.bmp_G  x=453 , y=600
-./photograph/16.bmp_B  x=501 , y=550
-./photograph/17.bmp_R  x=454 , y=626
-./photograph/17.bmp_G  x=450 , y=599
-./photograph/17.bmp_B  x=510 , y=556
-./photograph/18.bmp_R  x=457 , y=628
-./photograph/18.bmp_G  x=468 , y=605
-./photograph/18.bmp_B  x=518 , y=563
-./photograph/19.bmp_R  x=460 , y=630
-./photograph/19.bmp_G  x=459 , y=601
-./photograph/19.bmp_B  x=526 , y=570
-./photograph/20.bmp_R  x=462 , y=632
-./photograph/20.bmp_G  x=459 , y=617
-./photograph/20.bmp_B  x=532 , y=577
-./photograph/21.bmp_R  x=464 , y=634
-./photograph/21.bmp_G  x=431 , y=613
-./photograph/21.bmp_B  x=539 , y=584
-./photograph/22.bmp_R  x=465 , y=636
-./photograph/22.bmp_G  x=420 , y=631
-./photograph/22.bmp_B  x=544 , y=592
-./photograph/23.bmp_R  x=466 , y=637
-./photograph/23.bmp_G  x=450 , y=631
-./photograph/23.bmp_B  x=548 , y=599
-./photograph/24.bmp_R  x=467 , y=637
-./photograph/24.bmp_G  x=460 , y=639
-./photograph/24.bmp_B  x=551 , y=605
-./photograph/25.bmp_R  x=468 , y=638
-./photograph/25.bmp_G  x=431 , y=637
-./photograph/25.bmp_B  x=553 , y=611
-./photograph/26.bmp_R  x=469 , y=639
-./photograph/26.bmp_G  x=431 , y=628
-./photograph/26.bmp_B  x=556 , y=617
-./photograph/27.bmp_R  x=468 , y=640
-./photograph/27.bmp_G  x=462 , y=642
-./photograph/27.bmp_B  x=557 , y=622
-./photograph/28.bmp_R  x=469 , y=642
-./photograph/28.bmp_G  x=457 , y=651
-./photograph/28.bmp_B  x=559 , y=626
-./photograph/29.bmp_R  x=469 , y=643
-./photograph/29.bmp_G  x=430 , y=659
-./photograph/29.bmp_B  x=559 , y=630
-./photograph/30.bmp_R  x=470 , y=643
-./photograph/30.bmp_G  x=465 , y=659
-./photograph/30.bmp_B  x=560 , y=634
-./photograph/31.bmp_R  x=470 , y=643
-./photograph/31.bmp_G  x=441 , y=652
-./photograph/31.bmp_B  x=561 , y=637
-./photograph/32.bmp_R  x=469 , y=645
-./photograph/32.bmp_G  x=456 , y=644
-./photograph/32.bmp_B  x=562 , y=639
-./photograph/33.bmp_R  x=471 , y=644
-./photograph/33.bmp_G  x=476 , y=644
-./photograph/33.bmp_B  x=562 , y=640
-./photograph/34.bmp_R  x=470 , y=644
-./photograph/34.bmp_G  x=421 , y=638
-./photograph/34.bmp_B  x=559 , y=640
-./photograph/35.bmp_R  x=470 , y=644
-./photograph/35.bmp_G  x=460 , y=635
-./photograph/35.bmp_B  x=559 , y=639
-./photograph/36.bmp_R  x=470 , y=643
-./photograph/36.bmp_G  x=454 , y=644
-./photograph/36.bmp_B  x=562 , y=638
-./photograph/37.bmp_R  x=470 , y=643
-./photograph/37.bmp_G  x=477 , y=632
-./photograph/37.bmp_B  x=561 , y=635
-./photograph/38.bmp_R  x=466 , y=644
-./photograph/38.bmp_G  x=429 , y=631
-./photograph/38.bmp_B  x=560 , y=631
-./photograph/39.bmp_R  x=469 , y=641
-./photograph/39.bmp_G  x=449 , y=638
-./photograph/39.bmp_B  x=559 , y=627
-./photograph/40.bmp_R  x=468 , y=640
-./photograph/40.bmp_G  x=462 , y=643
-./photograph/40.bmp_B  x=557 , y=622
-./photograph/41.bmp_R  x=467 , y=639
-./photograph/41.bmp_G  x=468 , y=633
-./photograph/41.bmp_B  x=555 , y=617
-./photograph/42.bmp_R  x=466 , y=637
-./photograph/42.bmp_G  x=426 , y=634
-./photograph/42.bmp_B  x=553 , y=609
-./photograph/43.bmp_R  x=465 , y=636
-./photograph/43.bmp_G  x=457 , y=621
-./photograph/43.bmp_B  x=549 , y=602
-./photograph/44.bmp_R  x=464 , y=635
-./photograph/44.bmp_G  x=473 , y=621
-./photograph/44.bmp_B  x=545 , y=594
-./photograph/45.bmp_R  x=462 , y=633
-./photograph/45.bmp_G  x=473 , y=619
-./photograph/45.bmp_B  x=539 , y=586
-./photograph/46.bmp_R  x=461 , y=633
-./photograph/46.bmp_G  x=466 , y=603
-./photograph/46.bmp_B  x=533 , y=578
-./photograph/47.bmp_R  x=458 , y=630
-./photograph/47.bmp_G  x=412 , y=613
-./photograph/47.bmp_B  x=526 , y=570
-./photograph/48.bmp_R  x=457 , y=628
-./photograph/48.bmp_G  x=435 , y=594
-./photograph/48.bmp_B  x=516 , y=563
-./photograph/49.bmp_R  x=452 , y=626
-./photograph/49.bmp_G  x=458 , y=599
-./photograph/49.bmp_B  x=509 , y=555
-./photograph/50.bmp_R  x=450 , y=624
-./photograph/50.bmp_G  x=424 , y=616
-./photograph/50.bmp_B  x=500 , y=549
-./photograph/51.bmp_R  x=448 , y=623
-./photograph/51.bmp_G  x=425 , y=599
-./photograph/51.bmp_B  x=490 , y=543
-./photograph/52.bmp_R  x=442 , y=620
-./photograph/52.bmp_G  x=398 , y=598
-./photograph/52.bmp_B  x=480 , y=539
-./photograph/53.bmp_R  x=439 , y=619
-./photograph/53.bmp_G  x=400 , y=587
-./photograph/53.bmp_B  x=467 , y=534
-./photograph/54.bmp_R  x=432 , y=617
-./photograph/54.bmp_G  x=403 , y=591
-./photograph/54.bmp_B  x=450 , y=529
-./photograph/55.bmp_R  x=430 , y=616
-./photograph/55.bmp_G  x=369 , y=609
-./photograph/55.bmp_B  x=439 , y=527
-./photograph/56.bmp_R  x=427 , y=616
-./photograph/56.bmp_G  x=402 , y=591
-./photograph/56.bmp_B  x=433 , y=526
-./photograph/57.bmp_R  x=425 , y=616
-./photograph/57.bmp_G  x=384 , y=587
-./photograph/57.bmp_B  x=427 , y=526
-./photograph/58.bmp_R  x=423 , y=616
-./photograph/58.bmp_G  x=357 , y=591
-./photograph/58.bmp_B  x=421 , y=526
-./photograph/59.bmp_R  x=423 , y=615
-./photograph/59.bmp_G  x=406 , y=583
-./photograph/59.bmp_B  x=417 , y=526
-./photograph/60.bmp_R  x=421 , y=615
-./photograph/60.bmp_G  x=391 , y=582
-./photograph/60.bmp_B  x=413 , y=525
-./photograph/61.bmp_R  x=419 , y=615
-./photograph/61.bmp_G  x=361 , y=609
-./photograph/61.bmp_B  x=412 , y=526
-./photograph/62.bmp_R  x=420 , y=615
-./photograph/62.bmp_G  x=382 , y=583
-./photograph/62.bmp_B  x=411 , y=526
-./photograph/63.bmp_R  x=420 , y=615
-./photograph/63.bmp_G  x=391 , y=594
-./photograph/63.bmp_B  x=409 , y=526
-./photograph/64.bmp_R  x=420 , y=615
-./photograph/64.bmp_G  x=376 , y=584
-./photograph/64.bmp_B  x=409 , y=526
-./photograph/65.bmp_R  x=419 , y=616
-./photograph/65.bmp_G  x=393 , y=587
-./photograph/65.bmp_B  x=407 , y=526
-./photograph/66.bmp_R  x=418 , y=616
-./photograph/66.bmp_G  x=378 , y=586
-./photograph/66.bmp_B  x=408 , y=527
-./photograph/67.bmp_R  x=419 , y=616
-./photograph/67.bmp_G  x=386 , y=586
-./photograph/67.bmp_B  x=408 , y=526
-./photograph/68.bmp_R  x=420 , y=615
-./photograph/68.bmp_G  x=386 , y=578
-./photograph/68.bmp_B  x=410 , y=526
-./photograph/69.bmp_R  x=420 , y=616
-./photograph/69.bmp_G  x=375 , y=576
-./photograph/69.bmp_B  x=411 , y=526
-./photograph/70.bmp_R  x=420 , y=618
-./photograph/70.bmp_G  x=402 , y=573
-./photograph/70.bmp_B  x=413 , y=526
-./photograph/71.bmp_R  x=422 , y=616
-./photograph/71.bmp_G  x=389 , y=585
-./photograph/71.bmp_B  x=417 , y=526
-./photograph/72.bmp_R  x=423 , y=616
-./photograph/72.bmp_G  x=378 , y=587
-./photograph/72.bmp_B  x=420 , y=526
-./photograph/73.bmp_R  x=426 , y=615
-./photograph/73.bmp_G  x=387 , y=609
-./photograph/73.bmp_B  x=427 , y=526
-./photograph/74.bmp_R  x=430 , y=616
-./photograph/74.bmp_G  x=402 , y=583
-./photograph/74.bmp_B  x=433 , y=527
-./photograph/75.bmp_R  x=432 , y=616
-./photograph/75.bmp_G  x=367 , y=592
-./photograph/75.bmp_B  x=446 , y=528
-./photograph/76.bmp_R  x=435 , y=616
-./photograph/76.bmp_G  x=375 , y=600
-./photograph/76.bmp_B  x=457 , y=530
-./photograph/77.bmp_R  x=440 , y=617
-./photograph/77.bmp_G  x=415 , y=587
-./photograph/77.bmp_B  x=466 , y=533
-./photograph/78.bmp_R  x=443 , y=619
-./photograph/78.bmp_G  x=426 , y=583
-./photograph/78.bmp_B  x=477 , y=537
-./photograph/79.bmp_R  x=447 , y=620
-./photograph/79.bmp_G  x=385 , y=604
-./photograph/79.bmp_B  x=488 , y=542
-./photograph/80.bmp_R  x=451 , y=623
-./photograph/80.bmp_G  x=440 , y=600
-./photograph/80.bmp_B  x=499 , y=548
-./photograph/81.bmp_R  x=454 , y=624
-./photograph/81.bmp_G  x=444 , y=596
-./photograph/81.bmp_B  x=508 , y=554
-./photograph/82.bmp_R  x=457 , y=627
-./photograph/82.bmp_G  x=392 , y=610
-./photograph/82.bmp_B  x=516 , y=561
-./photograph/83.bmp_R  x=460 , y=629
-./photograph/83.bmp_G  x=464 , y=617
-./photograph/83.bmp_B  x=524 , y=569
-./photograph/84.bmp_R  x=462 , y=631
-./photograph/84.bmp_G  x=446 , y=608
-./photograph/84.bmp_B  x=531 , y=576
-./photograph/85.bmp_R  x=464 , y=633
-./photograph/85.bmp_G  x=451 , y=611
-./photograph/85.bmp_B  x=537 , y=585
-./photograph/86.bmp_R  x=467 , y=635
-./photograph/86.bmp_G  x=442 , y=635
-./photograph/86.bmp_B  x=543 , y=593
-./photograph/87.bmp_R  x=467 , y=635
-./photograph/87.bmp_G  x=450 , y=628
-./photograph/87.bmp_B  x=548 , y=601
-./photograph/88.bmp_R  x=468 , y=637
-./photograph/88.bmp_G  x=416 , y=641
-./photograph/88.bmp_B  x=551 , y=609
-./photograph/89.bmp_R  x=468 , y=638
-./photograph/89.bmp_G  x=430 , y=634
-./photograph/89.bmp_B  x=554 , y=617
-./photograph/90.bmp_R  x=469 , y=639
-./photograph/90.bmp_G  x=433 , y=641
-./photograph/90.bmp_B  x=554 , y=624
-./photograph/91.bmp_R  x=469 , y=641
-./photograph/91.bmp_G  x=441 , y=652
-./photograph/91.bmp_B  x=556 , y=631
-./photograph/92.bmp_R  x=471 , y=642
-./photograph/92.bmp_G  x=456 , y=639
-./photograph/92.bmp_B  x=560 , y=636
-./photograph/93.bmp_R  x=471 , y=643
-./photograph/93.bmp_G  x=466 , y=641
-./photograph/93.bmp_B  x=560 , y=643
-./photograph/94.bmp_R  x=471 , y=645
-./photograph/94.bmp_G  x=426 , y=643
-./photograph/94.bmp_B  x=561 , y=648
-./photograph/95.bmp_R  x=471 , y=645
-./photograph/95.bmp_G  x=458 , y=639
-./photograph/95.bmp_B  x=561 , y=651
-./photograph/96.bmp_R  x=471 , y=645
-./photograph/96.bmp_G  x=436 , y=646
-./photograph/96.bmp_B  x=561 , y=654
-./photograph/97.bmp_R  x=471 , y=645
-./photograph/97.bmp_G  x=468 , y=652
-./photograph/97.bmp_B  x=561 , y=654
-./photograph/98.bmp_R  x=471 , y=645
-./photograph/98.bmp_G  x=476 , y=643
-./photograph/98.bmp_B  x=561 , y=654
-./photograph/99.bmp_R  x=471 , y=644
-./photograph/99.bmp_G  x=473 , y=643
-./photograph/99.bmp_B  x=561 , y=653
-./photograph/100.bmp_R  x=471 , y=644
-./photograph/100.bmp_G  x=480 , y=647
-./photograph/100.bmp_B  x=561 , y=650
-./photograph/101.bmp_R  x=471 , y=644
-./photograph/101.bmp_G  x=460 , y=650
-./photograph/101.bmp_B  x=561 , y=647
-./photograph/102.bmp_R  x=469 , y=642
-./photograph/102.bmp_G  x=461 , y=647
-./photograph/102.bmp_B  x=560 , y=641
-./photograph/103.bmp_R  x=468 , y=640
-./photograph/103.bmp_G  x=411 , y=640
-./photograph/103.bmp_B  x=559 , y=635
-./photograph/104.bmp_R  x=467 , y=638
-./photograph/104.bmp_G  x=461 , y=631
-./photograph/104.bmp_B  x=557 , y=628
-./photograph/105.bmp_R  x=467 , y=637
-./photograph/105.bmp_G  x=480 , y=638
-./photograph/105.bmp_B  x=555 , y=620
-./photograph/106.bmp_R  x=465 , y=635
-./photograph/106.bmp_G  x=397 , y=625
-./photograph/106.bmp_B  x=552 , y=612
-./photograph/107.bmp_R  x=465 , y=635
-./photograph/107.bmp_G  x=443 , y=620
-./photograph/107.bmp_B  x=548 , y=603
-./photograph/108.bmp_R  x=463 , y=633
-./photograph/108.bmp_G  x=461 , y=615
-./photograph/108.bmp_B  x=543 , y=595
-./photograph/109.bmp_R  x=461 , y=632
-./photograph/109.bmp_G  x=414 , y=625
-./photograph/109.bmp_B  x=537 , y=585
-./photograph/110.bmp_R  x=459 , y=630
-./photograph/110.bmp_G  x=428 , y=600
-./photograph/110.bmp_B  x=530 , y=576
-./photograph/111.bmp_R  x=456 , y=627
-./photograph/111.bmp_G  x=435 , y=605
-./photograph/111.bmp_B  x=522 , y=567
-./photograph/112.bmp_R  x=454 , y=625
-./photograph/112.bmp_G  x=382 , y=579
-./photograph/112.bmp_B  x=514 , y=559
-./photograph/113.bmp_R  x=450 , y=622
-./photograph/113.bmp_G  x=420 , y=601
-./photograph/113.bmp_B  x=504 , y=551
-./photograph/114.bmp_R  x=448 , y=620
-./photograph/114.bmp_G  x=428 , y=589
-./photograph/114.bmp_B  x=495 , y=545
-./photograph/115.bmp_R  x=443 , y=618
-./photograph/115.bmp_G  x=397 , y=596
-./photograph/115.bmp_B  x=484 , y=539
-./photograph/116.bmp_R  x=439 , y=617
-./photograph/116.bmp_G  x=415 , y=592
-./photograph/116.bmp_B  x=473 , y=534
-./photograph/117.bmp_R  x=435 , y=615
-./photograph/117.bmp_G  x=418 , y=589
-./photograph/117.bmp_B  x=462 , y=530
-./photograph/118.bmp_R  x=431 , y=614
-./photograph/118.bmp_G  x=398 , y=585
-./photograph/118.bmp_B  x=452 , y=527
-./photograph/119.bmp_R  x=430 , y=614
-./photograph/119.bmp_G  x=404 , y=581
-./photograph/119.bmp_B  x=443 , y=525
-./photograph/120.bmp_R  x=426 , y=613
-./photograph/120.bmp_G  x=382 , y=598
-./photograph/120.bmp_B  x=436 , y=525
-./photograph/121.bmp_R  x=424 , y=613
-./photograph/121.bmp_G  x=376 , y=594
-./photograph/121.bmp_B  x=425 , y=525
-./photograph/122.bmp_R  x=423 , y=612
-./photograph/122.bmp_G  x=406 , y=578
-./photograph/122.bmp_B  x=423 , y=523
-./photograph/123.bmp_R  x=421 , y=613
-./photograph/123.bmp_G  x=396 , y=581
-./photograph/123.bmp_B  x=419 , y=523
-./photograph/124.bmp_R  x=421 , y=612
-./photograph/124.bmp_G  x=385 , y=592
-./photograph/124.bmp_B  x=416 , y=524
-./photograph/125.bmp_R  x=421 , y=612
-./photograph/125.bmp_G  x=398 , y=590
-./photograph/125.bmp_B  x=414 , y=524
-./photograph/126.bmp_R  x=419 , y=613
-./photograph/126.bmp_G  x=367 , y=592
-./photograph/126.bmp_B  x=411 , y=523
-./photograph/127.bmp_R  x=419 , y=612
-./photograph/127.bmp_G  x=363 , y=578
-./photograph/127.bmp_B  x=405 , y=525
-./photograph/128.bmp_R  x=419 , y=612
-./photograph/128.bmp_G  x=378 , y=603
-./photograph/128.bmp_B  x=411 , y=524
-./photograph/129.bmp_R  x=419 , y=612
-./photograph/129.bmp_G  x=380 , y=580
-./photograph/129.bmp_B  x=411 , y=523
-./photograph/130.bmp_R  x=420 , y=613
-./photograph/130.bmp_G  x=390 , y=592
-./photograph/130.bmp_B  x=414 , y=524
-./photograph/131.bmp_R  x=420 , y=613
-./photograph/131.bmp_G  x=374 , y=599
-./photograph/131.bmp_B  x=415 , y=524
-./photograph/132.bmp_R  x=422 , y=613
-./photograph/132.bmp_G  x=399 , y=585
-./photograph/132.bmp_B  x=419 , y=524
-./photograph/133.bmp_R  x=423 , y=613
-./photograph/133.bmp_G  x=392 , y=584
-./photograph/133.bmp_B  x=421 , y=524
-./photograph/134.bmp_R  x=430 , y=613
-./photograph/134.bmp_G  x=398 , y=582
-./photograph/134.bmp_B  x=444 , y=526
-./photograph/135.bmp_R  x=435 , y=614
-./photograph/135.bmp_G  x=394 , y=566
-./photograph/135.bmp_B  x=454 , y=527
-./photograph/136.bmp_R  x=439 , y=615
-./photograph/136.bmp_G  x=418 , y=590
-./photograph/136.bmp_B  x=466 , y=531
-./photograph/137.bmp_R  x=443 , y=617
-./photograph/137.bmp_G  x=401 , y=587
-./photograph/137.bmp_B  x=478 , y=535
-./photograph/138.bmp_R  x=468 , y=635
-./photograph/138.bmp_G  x=483 , y=634
-./photograph/138.bmp_B  x=547 , y=600
-./photograph/139.bmp_R  x=469 , y=638
-./photograph/139.bmp_G  x=393 , y=617
-./photograph/139.bmp_B  x=551 , y=619
-./photograph/140.bmp_R  x=469 , y=640
-./photograph/140.bmp_G  x=442 , y=644
-./photograph/140.bmp_B  x=557 , y=627
-./photograph/141.bmp_R  x=470 , y=641
-./photograph/141.bmp_G  x=477 , y=642
-./photograph/141.bmp_B  x=559 , y=635
-./photograph/142.bmp_R  x=471 , y=643
-./photograph/142.bmp_G  x=415 , y=654
-./photograph/142.bmp_B  x=560 , y=642
-./photograph/143.bmp_R  x=471 , y=644
-./photograph/143.bmp_G  x=464 , y=638
-./photograph/143.bmp_B  x=561 , y=648
-./photograph/144.bmp_R  x=471 , y=644
-./photograph/144.bmp_G  x=487 , y=653
-./photograph/144.bmp_B  x=560 , y=653
-./photograph/145.bmp_R  x=471 , y=645
-./photograph/145.bmp_G  x=436 , y=667
-./photograph/145.bmp_B  x=560 , y=656
-./photograph/146.bmp_R  x=471 , y=646
-./photograph/146.bmp_G  x=461 , y=655
-./photograph/146.bmp_B  x=560 , y=656
-./photograph/147.bmp_R  x=469 , y=645
-./photograph/147.bmp_G  x=445 , y=655
-./photograph/147.bmp_B  x=561 , y=656
-./photograph/148.bmp_R  x=471 , y=644
-./photograph/148.bmp_G  x=423 , y=643
-./photograph/148.bmp_B  x=560 , y=652
-./photograph/149.bmp_R  x=471 , y=643
-./photograph/149.bmp_G  x=428 , y=648
-./photograph/149.bmp_B  x=561 , y=647
-./photograph/150.bmp_R  x=470 , y=641
-./photograph/150.bmp_G  x=493 , y=640
-./photograph/150.bmp_B  x=560 , y=640
-./photograph/151.bmp_R  x=469 , y=640
-./photograph/151.bmp_G  x=409 , y=637
-./photograph/151.bmp_B  x=558 , y=633
-./photograph/152.bmp_R  x=468 , y=638
-./photograph/152.bmp_G  x=410 , y=594
-./photograph/152.bmp_B  x=556 , y=625
-./photograph/153.bmp_R  x=468 , y=636
-./photograph/153.bmp_G  x=478 , y=628
-./photograph/153.bmp_B  x=554 , y=617
-./photograph/154.bmp_R  x=467 , y=636
-./photograph/154.bmp_G  x=441 , y=657
-./photograph/154.bmp_B  x=548 , y=608
-./photograph/155.bmp_R  x=465 , y=634
-./photograph/155.bmp_G  x=417 , y=634
-./photograph/155.bmp_B  x=546 , y=599
-./photograph/156.bmp_R  x=463 , y=632
-./photograph/156.bmp_G  x=451 , y=618
-./photograph/156.bmp_B  x=540 , y=590
-./photograph/157.bmp_R  x=461 , y=630
-./photograph/157.bmp_G  x=444 , y=622
-./photograph/157.bmp_B  x=534 , y=581
-./photograph/158.bmp_R  x=450 , y=621
-./photograph/158.bmp_G  x=415 , y=603
-./photograph/158.bmp_B  x=500 , y=550
-./photograph/159.bmp_R  x=447 , y=619
-./photograph/159.bmp_G  x=389 , y=645
-./photograph/159.bmp_B  x=491 , y=544
-./photograph/160.bmp_R  x=443 , y=617
-./photograph/160.bmp_G  x=379 , y=606
-./photograph/160.bmp_B  x=483 , y=537
-./photograph/161.bmp_R  x=440 , y=616
-./photograph/161.bmp_G  x=394 , y=585
-./photograph/161.bmp_B  x=473 , y=532
-./photograph/162.bmp_R  x=430 , y=614
-./photograph/162.bmp_G  x=432 , y=581
-./photograph/162.bmp_B  x=444 , y=525
-./photograph/163.bmp_R  x=429 , y=613
-./photograph/163.bmp_G  x=410 , y=580
-./photograph/163.bmp_B  x=437 , y=524
-./photograph/164.bmp_R  x=421 , y=613
-./photograph/164.bmp_G  x=389 , y=589
-./photograph/164.bmp_B  x=415 , y=524
-./photograph/165.bmp_R  x=421 , y=613
-./photograph/165.bmp_G  x=397 , y=590
-./photograph/165.bmp_B  x=414 , y=524
-./photograph/166.bmp_R  x=420 , y=614
-./photograph/166.bmp_G  x=372 , y=588
-./photograph/166.bmp_B  x=414 , y=524
-./photograph/167.bmp_R  x=423 , y=613
-./photograph/167.bmp_G  x=407 , y=586
-./photograph/167.bmp_B  x=417 , y=524
-./photograph/168.bmp_R  x=424 , y=613
-./photograph/168.bmp_G  x=411 , y=573
-./photograph/168.bmp_B  x=419 , y=524
-./photograph/169.bmp_R  x=425 , y=615
-./photograph/169.bmp_G  x=402 , y=585
-./photograph/169.bmp_B  x=423 , y=524
-./photograph/170.bmp_R  x=427 , y=614
-./photograph/170.bmp_G  x=402 , y=591
-./photograph/170.bmp_B  x=425 , y=525
-./photograph/171.bmp_R  x=429 , y=613
-./photograph/171.bmp_G  x=414 , y=583
-./photograph/171.bmp_B  x=434 , y=524
-./photograph/172.bmp_R  x=431 , y=613
-./photograph/172.bmp_G  x=389 , y=593
-./photograph/172.bmp_B  x=442 , y=525
-./photograph/173.bmp_R  x=436 , y=617
-./photograph/173.bmp_G  x=418 , y=578
-./photograph/173.bmp_B  x=451 , y=526
-./photograph/174.bmp_R  x=438 , y=615
-./photograph/174.bmp_G  x=367 , y=643
-./photograph/174.bmp_B  x=462 , y=529
-./photograph/175.bmp_R  x=442 , y=616
-./photograph/175.bmp_G  x=379 , y=590
-./photograph/175.bmp_B  x=472 , y=532
-./photograph/176.bmp_R  x=446 , y=619
-./photograph/176.bmp_G  x=401 , y=590
-./photograph/176.bmp_B  x=484 , y=537
-./photograph/177.bmp_R  x=450 , y=619
-./photograph/177.bmp_G  x=432 , y=600
-./photograph/177.bmp_B  x=496 , y=544
-./photograph/178.bmp_R  x=454 , y=623
-./photograph/178.bmp_G  x=376 , y=608
-./photograph/178.bmp_B  x=505 , y=551
-./photograph/179.bmp_R  x=458 , y=625
-./photograph/179.bmp_G  x=418 , y=626
-./photograph/179.bmp_B  x=517 , y=559
-./photograph/180.bmp_R  x=461 , y=628
-./photograph/180.bmp_G  x=461 , y=601
-./photograph/180.bmp_B  x=527 , y=569
-./photograph/181.bmp_R  x=464 , y=630
-./photograph/181.bmp_G  x=423 , y=645
-./photograph/181.bmp_B  x=536 , y=580
-./photograph/182.bmp_R  x=466 , y=633
-./photograph/182.bmp_G  x=462 , y=624
-./photograph/182.bmp_B  x=543 , y=590
-./photograph/183.bmp_R  x=467 , y=633
-./photograph/183.bmp_G  x=449 , y=639
-./photograph/183.bmp_B  x=549 , y=602
-./photograph/184.bmp_R  x=468 , y=636
-./photograph/184.bmp_G  x=409 , y=631
-./photograph/184.bmp_B  x=553 , y=612
-./photograph/185.bmp_R  x=469 , y=637
-./photograph/185.bmp_G  x=430 , y=625
-./photograph/185.bmp_B  x=556 , y=621
-./photograph/186.bmp_R  x=470 , y=639
-./photograph/186.bmp_G  x=472 , y=639
-./photograph/186.bmp_B  x=558 , y=631
-./photograph/187.bmp_R  x=470 , y=642
-./photograph/187.bmp_G  x=457 , y=636
-./photograph/187.bmp_B  x=560 , y=638
-./photograph/188.bmp_R  x=471 , y=644
-./photograph/188.bmp_G  x=432 , y=658
-./photograph/188.bmp_B  x=561 , y=645
-./photograph/189.bmp_R  x=471 , y=644
-./photograph/189.bmp_G  x=451 , y=655
-./photograph/189.bmp_B  x=561 , y=652
-./photograph/190.bmp_R  x=472 , y=645
-./photograph/190.bmp_G  x=456 , y=652
-./photograph/190.bmp_B  x=560 , y=656
-./photograph/191.bmp_R  x=471 , y=645
-./photograph/191.bmp_G  x=466 , y=652
-./photograph/191.bmp_B  x=560 , y=658
-./photograph/192.bmp_R  x=471 , y=647
-./photograph/192.bmp_G  x=469 , y=652
-./photograph/192.bmp_B  x=558 , y=659
-./photograph/193.bmp_R  x=471 , y=644
-./photograph/193.bmp_G  x=432 , y=657
-./photograph/193.bmp_B  x=560 , y=658
-./photograph/194.bmp_R  x=471 , y=646
-./photograph/194.bmp_G  x=465 , y=660
-./photograph/194.bmp_B  x=561 , y=656
-./photograph/195.bmp_R  x=469 , y=644
-./photograph/195.bmp_G  x=451 , y=630
-./photograph/195.bmp_B  x=558 , y=651
-./photograph/196.bmp_R  x=471 , y=642
-./photograph/196.bmp_G  x=470 , y=648
-./photograph/196.bmp_B  x=560 , y=645
-./photograph/197.bmp_R  x=469 , y=641
-./photograph/197.bmp_G  x=458 , y=640
-./photograph/197.bmp_B  x=559 , y=639
-./photograph/198.bmp_R  x=469 , y=638
-./photograph/198.bmp_G  x=437 , y=649
-./photograph/198.bmp_B  x=558 , y=631
-./photograph/199.bmp_R  x=468 , y=637
-./photograph/199.bmp_G  x=461 , y=636
-./photograph/199.bmp_B  x=556 , y=623
-./photograph/200.bmp_R  x=467 , y=636
-./photograph/200.bmp_G  x=461 , y=640
-./photograph/200.bmp_B  x=553 , y=616
-./photograph/201.bmp_R  x=466 , y=633
-./photograph/201.bmp_G  x=445 , y=622
-./photograph/201.bmp_B  x=550 , y=607
-./photograph/202.bmp_R  x=465 , y=634
-./photograph/202.bmp_G  x=417 , y=608
-./photograph/202.bmp_B  x=546 , y=599
-./photograph/203.bmp_R  x=464 , y=632
-./photograph/203.bmp_G  x=430 , y=614
-./photograph/203.bmp_B  x=541 , y=589
-./photograph/204.bmp_R  x=461 , y=630
-./photograph/204.bmp_G  x=443 , y=604
-./photograph/204.bmp_B  x=535 , y=581
-./photograph/205.bmp_R  x=460 , y=628
-./photograph/205.bmp_G  x=466 , y=608
-./photograph/205.bmp_B  x=529 , y=573
-./photograph/206.bmp_R  x=458 , y=625
-./photograph/206.bmp_G  x=418 , y=599
-./photograph/206.bmp_B  x=522 , y=565
-./photograph/207.bmp_R  x=455 , y=623
-./photograph/207.bmp_G  x=459 , y=591
-./photograph/207.bmp_B  x=514 , y=557
-./photograph/208.bmp_R  x=452 , y=621
-./photograph/208.bmp_G  x=425 , y=587
-./photograph/208.bmp_B  x=506 , y=551
-./photograph/209.bmp_R  x=448 , y=619
-./photograph/209.bmp_G  x=426 , y=593
-./photograph/209.bmp_B  x=497 , y=545
-./photograph/210.bmp_R  x=446 , y=617
-./photograph/210.bmp_G  x=427 , y=590
-./photograph/210.bmp_B  x=487 , y=538
-./photograph/211.bmp_R  x=441 , y=616
-./photograph/211.bmp_G  x=400 , y=588
-./photograph/211.bmp_B  x=478 , y=534
-./photograph/212.bmp_R  x=438 , y=614
-./photograph/212.bmp_G  x=422 , y=590
-./photograph/212.bmp_B  x=465 , y=531
-./photograph/213.bmp_R  x=436 , y=613
-./photograph/213.bmp_G  x=387 , y=607
-./photograph/213.bmp_B  x=455 , y=528
-./photograph/214.bmp_R  x=432 , y=612
-./photograph/214.bmp_G  x=401 , y=576
-./photograph/214.bmp_B  x=447 , y=526
-./photograph/215.bmp_R  x=430 , y=612
-./photograph/215.bmp_G  x=390 , y=583
-./photograph/215.bmp_B  x=443 , y=524
-./photograph/216.bmp_R  x=427 , y=612
-./photograph/216.bmp_G  x=382 , y=582
-./photograph/216.bmp_B  x=435 , y=523
-./photograph/217.bmp_R  x=427 , y=612
-./photograph/217.bmp_G  x=388 , y=583
-./photograph/217.bmp_B  x=430 , y=523
-./photograph/218.bmp_R  x=424 , y=612
-./photograph/218.bmp_G  x=373 , y=589
-./photograph/218.bmp_B  x=426 , y=523
-./photograph/219.bmp_R  x=424 , y=611
-./photograph/219.bmp_G  x=396 , y=589
-./photograph/219.bmp_B  x=423 , y=522
-./photograph/220.bmp_R  x=423 , y=611
-./photograph/220.bmp_G  x=362 , y=599
-./photograph/220.bmp_B  x=420 , y=522
-./photograph/221.bmp_R  x=423 , y=612
-./photograph/221.bmp_G  x=380 , y=583
-./photograph/221.bmp_B  x=419 , y=522
-./photograph/222.bmp_R  x=422 , y=611
-./photograph/222.bmp_G  x=402 , y=575
-./photograph/222.bmp_B  x=417 , y=523
-./photograph/223.bmp_R  x=422 , y=612
-./photograph/223.bmp_G  x=377 , y=574
-./photograph/223.bmp_B  x=416 , y=522
-./photograph/224.bmp_R  x=422 , y=611
-./photograph/224.bmp_G  x=402 , y=579
-./photograph/224.bmp_B  x=417 , y=522
-./photograph/225.bmp_R  x=422 , y=611
-./photograph/225.bmp_G  x=412 , y=575
-./photograph/225.bmp_B  x=417 , y=522
-./photograph/226.bmp_R  x=422 , y=611
-./photograph/226.bmp_G  x=382 , y=587
-./photograph/226.bmp_B  x=418 , y=522
-./photograph/227.bmp_R  x=423 , y=611
-./photograph/227.bmp_G  x=381 , y=588
-./photograph/227.bmp_B  x=421 , y=522
-./photograph/228.bmp_R  x=426 , y=611
-./photograph/228.bmp_G  x=387 , y=585
-./photograph/228.bmp_B  x=430 , y=522
-./photograph/229.bmp_R  x=428 , y=611
-./photograph/229.bmp_G  x=377 , y=588
-./photograph/229.bmp_B  x=435 , y=522
-./photograph/230.bmp_R  x=431 , y=611
-./photograph/230.bmp_G  x=400 , y=594
-./photograph/230.bmp_B  x=440 , y=524
-./photograph/231.bmp_R  x=434 , y=611
-./photograph/231.bmp_G  x=402 , y=581
-./photograph/231.bmp_B  x=452 , y=525
-./photograph/232.bmp_R  x=438 , y=613
-./photograph/232.bmp_G  x=383 , y=600
-./photograph/232.bmp_B  x=461 , y=526
-./photograph/233.bmp_R  x=442 , y=614
-./photograph/233.bmp_G  x=414 , y=618
-./photograph/233.bmp_B  x=473 , y=530
-./photograph/234.bmp_R  x=446 , y=615
-./photograph/234.bmp_G  x=393 , y=596
-./photograph/234.bmp_B  x=484 , y=535
-./photograph/235.bmp_R  x=449 , y=617
-./photograph/235.bmp_G  x=395 , y=589
-./photograph/235.bmp_B  x=495 , y=541
-./photograph/236.bmp_R  x=453 , y=620
-./photograph/236.bmp_G  x=449 , y=600
-./photograph/236.bmp_B  x=506 , y=549
-./photograph/237.bmp_R  x=458 , y=623
-./photograph/237.bmp_G  x=407 , y=588
-./photograph/237.bmp_B  x=514 , y=559
-./photograph/238.bmp_R  x=461 , y=626
-./photograph/238.bmp_G  x=431 , y=639
-./photograph/238.bmp_B  x=526 , y=566
-./photograph/239.bmp_R  x=464 , y=629
-./photograph/239.bmp_G  x=453 , y=618
-./photograph/239.bmp_B  x=534 , y=577
-./photograph/240.bmp_R  x=465 , y=630
-./photograph/240.bmp_G  x=482 , y=620
-./photograph/240.bmp_B  x=542 , y=588
-./photograph/241.bmp_R  x=467 , y=633
-./photograph/241.bmp_G  x=449 , y=616
-./photograph/241.bmp_B  x=545 , y=598
-./photograph/242.bmp_R  x=469 , y=634
-./photograph/242.bmp_G  x=478 , y=636
-./photograph/242.bmp_B  x=553 , y=609
-./photograph/243.bmp_R  x=469 , y=636
-./photograph/243.bmp_G  x=412 , y=661
-./photograph/243.bmp_B  x=556 , y=619
-./photograph/244.bmp_R  x=470 , y=638
-./photograph/244.bmp_G  x=443 , y=646
-./photograph/244.bmp_B  x=559 , y=628
-./photograph/245.bmp_R  x=471 , y=640
-./photograph/245.bmp_G  x=443 , y=652
-./photograph/245.bmp_B  x=560 , y=636
-./photograph/246.bmp_R  x=471 , y=641
-./photograph/246.bmp_G  x=469 , y=650
-./photograph/246.bmp_B  x=558 , y=644
-./photograph/247.bmp_R  x=472 , y=643
-./photograph/247.bmp_G  x=456 , y=645
-./photograph/247.bmp_B  x=558 , y=650
-./photograph/248.bmp_R  x=472 , y=644
-./photograph/248.bmp_G  x=463 , y=664
-./photograph/248.bmp_B  x=561 , y=656
-./photograph/249.bmp_R  x=473 , y=644
-./photograph/249.bmp_G  x=449 , y=657
-./photograph/249.bmp_B  x=561 , y=659
-./photograph/250.bmp_R  x=472 , y=645
-./photograph/250.bmp_G  x=445 , y=664
-./photograph/250.bmp_B  x=561 , y=659
-./photograph/251.bmp_R  x=472 , y=645
-./photograph/251.bmp_G  x=463 , y=653
-./photograph/251.bmp_B  x=560 , y=659
-./photograph/252.bmp_R  x=471 , y=644
-./photograph/252.bmp_G  x=461 , y=654
-./photograph/252.bmp_B  x=560 , y=656
-./photograph/253.bmp_R  x=472 , y=643
-./photograph/253.bmp_G  x=444 , y=663
-./photograph/253.bmp_B  x=561 , y=650
-./photograph/254.bmp_R  x=471 , y=642
-./photograph/254.bmp_G  x=482 , y=656
-./photograph/254.bmp_B  x=561 , y=645
-./photograph/255.bmp_R  x=470 , y=639
-./photograph/255.bmp_G  x=426 , y=635
-./photograph/255.bmp_B  x=560 , y=636
-./photograph/256.bmp_R  x=469 , y=638
-./photograph/256.bmp_G  x=350 , y=636
-./photograph/256.bmp_B  x=557 , y=628
-./photograph/257.bmp_R  x=468 , y=637
-./photograph/257.bmp_G  x=448 , y=633
-./photograph/257.bmp_B  x=555 , y=619
-./photograph/258.bmp_R  x=467 , y=634
-./photograph/258.bmp_G  x=452 , y=639
-./photograph/258.bmp_B  x=552 , y=610
-./photograph/259.bmp_R  x=466 , y=633
-./photograph/259.bmp_G  x=406 , y=651
-./photograph/259.bmp_B  x=547 , y=600
-./photograph/260.bmp_R  x=464 , y=630
-./photograph/260.bmp_G  x=459 , y=628
-./photograph/260.bmp_B  x=542 , y=591
-./photograph/261.bmp_R  x=461 , y=629
-./photograph/261.bmp_G  x=412 , y=599
-./photograph/261.bmp_B  x=536 , y=581
-./photograph/262.bmp_R  x=459 , y=626
-./photograph/262.bmp_G  x=415 , y=608
-./photograph/262.bmp_B  x=528 , y=571
-./photograph/263.bmp_R  x=456 , y=624
-./photograph/263.bmp_G  x=452 , y=601
-./photograph/263.bmp_B  x=520 , y=562
-./photograph/264.bmp_R  x=453 , y=621
-./photograph/264.bmp_G  x=462 , y=597
-./photograph/264.bmp_B  x=512 , y=555
-./photograph/265.bmp_R  x=450 , y=619
-./photograph/265.bmp_G  x=412 , y=593
-./photograph/265.bmp_B  x=503 , y=547
-./photograph/266.bmp_R  x=447 , y=616
-./photograph/266.bmp_G  x=436 , y=585
-./photograph/266.bmp_B  x=493 , y=541
-./photograph/267.bmp_R  x=443 , y=614
-./photograph/267.bmp_G  x=428 , y=578
-./photograph/267.bmp_B  x=484 , y=535
-./photograph/268.bmp_R  x=440 , y=613
-./photograph/268.bmp_G  x=388 , y=594
-./photograph/268.bmp_B  x=474 , y=530
-./photograph/269.bmp_R  x=434 , y=611
-./photograph/269.bmp_G  x=390 , y=575
-./photograph/269.bmp_B  x=453 , y=526
-./photograph/270.bmp_R  x=431 , y=611
-./photograph/270.bmp_G  x=351 , y=563
-./photograph/270.bmp_B  x=445 , y=523
-./photograph/271.bmp_R  x=429 , y=611
-./photograph/271.bmp_G  x=419 , y=581
-./photograph/271.bmp_B  x=438 , y=521
-./photograph/272.bmp_R  x=427 , y=610
-./photograph/272.bmp_G  x=420 , y=575
-./photograph/272.bmp_B  x=432 , y=521
-./photograph/273.bmp_R  x=425 , y=610
-./photograph/273.bmp_G  x=384 , y=584
-./photograph/273.bmp_B  x=427 , y=520
-./photograph/274.bmp_R  x=425 , y=610
-./photograph/274.bmp_G  x=410 , y=576
-./photograph/274.bmp_B  x=422 , y=522
-./photograph/275.bmp_R  x=423 , y=610
-./photograph/275.bmp_G  x=396 , y=568
-./photograph/275.bmp_B  x=422 , y=520
-./photograph/276.bmp_R  x=423 , y=609
-./photograph/276.bmp_G  x=366 , y=601
-./photograph/276.bmp_B  x=421 , y=520
-./photograph/277.bmp_R  x=422 , y=609
-./photograph/277.bmp_G  x=389 , y=600
-./photograph/277.bmp_B  x=420 , y=520
-./photograph/278.bmp_R  x=422 , y=610
-./photograph/278.bmp_G  x=387 , y=580
-./photograph/278.bmp_B  x=419 , y=520
-./photograph/279.bmp_R  x=423 , y=609
-./photograph/279.bmp_G  x=402 , y=584
-./photograph/279.bmp_B  x=420 , y=520
-./photograph/280.bmp_R  x=423 , y=609
-./photograph/280.bmp_G  x=395 , y=589
-./photograph/280.bmp_B  x=420 , y=520
-./photograph/281.bmp_R  x=423 , y=609
-./photograph/281.bmp_G  x=407 , y=571
-./photograph/281.bmp_B  x=422 , y=520
-./photograph/282.bmp_R  x=424 , y=609
-./photograph/282.bmp_G  x=399 , y=579
-./photograph/282.bmp_B  x=422 , y=520
-./photograph/283.bmp_R  x=424 , y=609
-./photograph/283.bmp_G  x=387 , y=578
-./photograph/283.bmp_B  x=421 , y=520
-./photograph/284.bmp_R  x=424 , y=610
-./photograph/284.bmp_G  x=385 , y=585
-./photograph/284.bmp_B  x=420 , y=521
-./photograph/285.bmp_R  x=425 , y=610
-./photograph/285.bmp_G  x=424 , y=577
-./photograph/285.bmp_B  x=423 , y=520
-./photograph/286.bmp_R  x=425 , y=610
-./photograph/286.bmp_G  x=385 , y=567
-./photograph/286.bmp_B  x=423 , y=520
-./photograph/287.bmp_R  x=424 , y=610
-./photograph/287.bmp_G  x=393 , y=586
-./photograph/287.bmp_B  x=423 , y=520
+1Rx422y619
+1Gx369y586
+1Bx417y531
+2Rx421y618
+2Gx392y590
+2Bx415y530
+3Rx421y618
+3Gx399y589
+3Bx416y530
+4Rx424y619
+4Gx364y607
+4Bx417y530
+5Rx422y618
+5Gx412y592
+5Bx417y529
+6Rx422y619
+6Gx380y598
+6Bx418y529
+7Rx425y618
+7Gx411y581
+7Bx423y529
+8Rx427y618
+8Gx374y603
+8Bx428y529
+9Rx428y618
+9Gx423y583
+9Bx433y529
+10Rx431y618
+10Gx408y582
+10Bx440y529
+11Rx433y618
+11Gx405y586
+11Bx449y531
+12Rx437y619
+12Gx432y589
+12Bx460y532
+13Rx440y619
+13Gx388y578
+13Bx470y535
+14Rx445y621
+14Gx440y585
+14Bx481y539
+15Rx448y622
+15Gx431y591
+15Bx491y544
+16Rx451y624
+16Gx453y600
+16Bx501y550
+17Rx454y626
+17Gx450y599
+17Bx510y556
+18Rx457y628
+18Gx468y605
+18Bx518y563
+19Rx460y630
+19Gx459y601
+19Bx526y570
+20Rx462y632
+20Gx459y617
+20Bx532y577
+21Rx464y634
+21Gx431y613
+21Bx539y584
+22Rx465y636
+22Gx420y631
+22Bx544y592
+23Rx466y637
+23Gx450y631
+23Bx548y599
+24Rx467y637
+24Gx460y639
+24Bx551y605
+25Rx468y638
+25Gx431y637
+25Bx553y611
+26Rx469y639
+26Gx431y628
+26Bx556y617
+27Rx468y640
+27Gx462y642
+27Bx557y622
+28Rx469y642
+28Gx457y651
+28Bx559y626
+29Rx469y643
+29Gx430y659
+29Bx559y630
+30Rx470y643
+30Gx465y659
+30Bx560y634
+31Rx470y643
+31Gx441y652
+31Bx561y637
+32Rx469y645
+32Gx456y644
+32Bx562y639
+33Rx471y644
+33Gx476y644
+33Bx562y640
+34Rx470y644
+34Gx421y638
+34Bx559y640
+35Rx470y644
+35Gx460y635
+35Bx559y639
+36Rx470y643
+36Gx454y644
+36Bx562y638
+37Rx470y643
+37Gx477y632
+37Bx561y635
+38Rx466y644
+38Gx429y631
+38Bx560y631
+39Rx469y641
+39Gx449y638
+39Bx559y627
+40Rx468y640
+40Gx462y643
+40Bx557y622
+41Rx467y639
+41Gx468y633
+41Bx555y617
+42Rx466y637
+42Gx426y634
+42Bx553y609
+43Rx465y636
+43Gx457y621
+43Bx549y602
+44Rx464y635
+44Gx473y621
+44Bx545y594
+45Rx462y633
+45Gx473y619
+45Bx539y586
+46Rx461y633
+46Gx466y603
+46Bx533y578
+47Rx458y630
+47Gx412y613
+47Bx526y570
+48Rx457y628
+48Gx435y594
+48Bx516y563
+49Rx452y626
+49Gx458y599
+49Bx509y555
+50Rx450y624
+50Gx424y616
+50Bx500y549
+51Rx448y623
+51Gx425y599
+51Bx490y543
+52Rx442y620
+52Gx398y598
+52Bx480y539
+53Rx439y619
+53Gx400y587
+53Bx467y534
+54Rx432y617
+54Gx403y591
+54Bx450y529
+55Rx430y616
+55Gx369y609
+55Bx439y527
+56Rx427y616
+56Gx402y591
+56Bx433y526
+57Rx425y616
+57Gx384y587
+57Bx427y526
+58Rx423y616
+58Gx357y591
+58Bx421y526
+59Rx423y615
+59Gx406y583
+59Bx417y526
+60Rx421y615
+60Gx391y582
+60Bx413y525
+61Rx419y615
+61Gx361y609
+61Bx412y526
+62Rx420y615
+62Gx382y583
+62Bx411y526
+63Rx420y615
+63Gx391y594
+63Bx409y526
+64Rx420y615
+64Gx376y584
+64Bx409y526
+65Rx419y616
+65Gx393y587
+65Bx407y526
+66Rx418y616
+66Gx378y586
+66Bx408y527
+67Rx419y616
+67Gx386y586
+67Bx408y526
+68Rx420y615
+68Gx386y578
+68Bx410y526
+69Rx420y616
+69Gx375y576
+69Bx411y526
+70Rx420y618
+70Gx402y573
+70Bx413y526
+71Rx422y616
+71Gx389y585
+71Bx417y526
+72Rx423y616
+72Gx378y587
+72Bx420y526
+73Rx426y615
+73Gx387y609
+73Bx427y526
+74Rx430y616
+74Gx402y583
+74Bx433y527
+75Rx432y616
+75Gx367y592
+75Bx446y528
+76Rx435y616
+76Gx375y600
+76Bx457y530
+77Rx440y617
+77Gx415y587
+77Bx466y533
+78Rx443y619
+78Gx426y583
+78Bx477y537
+79Rx447y620
+79Gx385y604
+79Bx488y542
+80Rx451y623
+80Gx440y600
+80Bx499y548
+81Rx454y624
+81Gx444y596
+81Bx508y554
+82Rx457y627
+82Gx392y610
+82Bx516y561
+83Rx460y629
+83Gx464y617
+83Bx524y569
+84Rx462y631
+84Gx446y608
+84Bx531y576
+85Rx464y633
+85Gx451y611
+85Bx537y585
+86Rx467y635
+86Gx442y635
+86Bx543y593
+87Rx467y635
+87Gx450y628
+87Bx548y601
+88Rx468y637
+88Gx416y641
+88Bx551y609
+89Rx468y638
+89Gx430y634
+89Bx554y617
+90Rx469y639
+90Gx433y641
+90Bx554y624
+91Rx469y641
+91Gx441y652
+91Bx556y631
+92Rx471y642
+92Gx456y639
+92Bx560y636
+93Rx471y643
+93Gx466y641
+93Bx560y643
+94Rx471y645
+94Gx426y643
+94Bx561y648
+95Rx471y645
+95Gx458y639
+95Bx561y651
+96Rx471y645
+96Gx436y646
+96Bx561y654
+97Rx471y645
+97Gx468y652
+97Bx561y654
+98Rx471y645
+98Gx476y643
+98Bx561y654
+99Rx471y644
+99Gx473y643
+99Bx561y653
+100Rx471y644
+100Gx480y647
+100Bx561y650
+101Rx471y644
+101Gx460y650
+101Bx561y647
+102Rx469y642
+102Gx461y647
+102Bx560y641
+103Rx468y640
+103Gx411y640
+103Bx559y635
+104Rx467y638
+104Gx461y631
+104Bx557y628
+105Rx467y637
+105Gx480y638
+105Bx555y620
+106Rx465y635
+106Gx397y625
+106Bx552y612
+107Rx465y635
+107Gx443y620
+107Bx548y603
+108Rx463y633
+108Gx461y615
+108Bx543y595
+109Rx461y632
+109Gx414y625
+109Bx537y585
+110Rx459y630
+110Gx428y600
+110Bx530y576
+111Rx456y627
+111Gx435y605
+111Bx522y567
+112Rx454y625
+112Gx382y579
+112Bx514y559
+113Rx450y622
+113Gx420y601
+113Bx504y551
+114Rx448y620
+114Gx428y589
+114Bx495y545
+115Rx443y618
+115Gx397y596
+115Bx484y539
+116Rx439y617
+116Gx415y592
+116Bx473y534
+117Rx435y615
+117Gx418y589
+117Bx462y530
+118Rx431y614
+118Gx398y585
+118Bx452y527
+119Rx430y614
+119Gx404y581
+119Bx443y525
+120Rx426y613
+120Gx382y598
+120Bx436y525
+121Rx424y613
+121Gx376y594
+121Bx425y525
+122Rx423y612
+122Gx406y578
+122Bx423y523
+123Rx421y613
+123Gx396y581
+123Bx419y523
+124Rx421y612
+124Gx385y592
+124Bx416y524
+125Rx421y612
+125Gx398y590
+125Bx414y524
+126Rx419y613
+126Gx367y592
+126Bx411y523
+127Rx419y612
+127Gx363y578
+127Bx405y525
+128Rx419y612
+128Gx378y603
+128Bx411y524
+129Rx419y612
+129Gx380y580
+129Bx411y523
+130Rx420y613
+130Gx390y592
+130Bx414y524
+131Rx420y613
+131Gx374y599
+131Bx415y524
+132Rx422y613
+132Gx399y585
+132Bx419y524
+133Rx423y613
+133Gx392y584
+133Bx421y524
+134Rx430y613
+134Gx398y582
+134Bx444y526
+135Rx435y614
+135Gx394y566
+135Bx454y527
+136Rx439y615
+136Gx418y590
+136Bx466y531
+137Rx443y617
+137Gx401y587
+137Bx478y535
+138Rx468y635
+138Gx483y634
+138Bx547y600
+139Rx469y638
+139Gx393y617
+139Bx551y619
+140Rx469y640
+140Gx442y644
+140Bx557y627
+141Rx470y641
+141Gx477y642
+141Bx559y635
+142Rx471y643
+142Gx415y654
+142Bx560y642
+143Rx471y644
+143Gx464y638
+143Bx561y648
+144Rx471y644
+144Gx487y653
+144Bx560y653
+145Rx471y645
+145Gx436y667
+145Bx560y656
+146Rx471y646
+146Gx461y655
+146Bx560y656
+147Rx469y645
+147Gx445y655
+147Bx561y656
+148Rx471y644
+148Gx423y643
+148Bx560y652
+149Rx471y643
+149Gx428y648
+149Bx561y647
+150Rx470y641
+150Gx493y640
+150Bx560y640
+151Rx469y640
+151Gx409y637
+151Bx558y633
+152Rx468y638
+152Gx410y594
+152Bx556y625
+153Rx468y636
+153Gx478y628
+153Bx554y617
+154Rx467y636
+154Gx441y657
+154Bx548y608
+155Rx465y634
+155Gx417y634
+155Bx546y599
+156Rx463y632
+156Gx451y618
+156Bx540y590
+157Rx461y630
+157Gx444y622
+157Bx534y581
+158Rx450y621
+158Gx415y603
+158Bx500y550
+159Rx447y619
+159Gx389y645
+159Bx491y544
+160Rx443y617
+160Gx379y606
+160Bx483y537
+161Rx440y616
+161Gx394y585
+161Bx473y532
+162Rx430y614
+162Gx432y581
+162Bx444y525
+163Rx429y613
+163Gx410y580
+163Bx437y524
+164Rx421y613
+164Gx389y589
+164Bx415y524
+165Rx421y613
+165Gx397y590
+165Bx414y524
+166Rx420y614
+166Gx372y588
+166Bx414y524
+167Rx423y613
+167Gx407y586
+167Bx417y524
+168Rx424y613
+168Gx411y573
+168Bx419y524
+169Rx425y615
+169Gx402y585
+169Bx423y524
+170Rx427y614
+170Gx402y591
+170Bx425y525
+171Rx429y613
+171Gx414y583
+171Bx434y524
+172Rx431y613
+172Gx389y593
+172Bx442y525
+173Rx436y617
+173Gx418y578
+173Bx451y526
+174Rx438y615
+174Gx367y643
+174Bx462y529
+175Rx442y616
+175Gx379y590
+175Bx472y532
+176Rx446y619
+176Gx401y590
+176Bx484y537
+177Rx450y619
+177Gx432y600
+177Bx496y544
+178Rx454y623
+178Gx376y608
+178Bx505y551
+179Rx458y625
+179Gx418y626
+179Bx517y559
+180Rx461y628
+180Gx461y601
+180Bx527y569
+181Rx464y630
+181Gx423y645
+181Bx536y580
+182Rx466y633
+182Gx462y624
+182Bx543y590
+183Rx467y633
+183Gx449y639
+183Bx549y602
+184Rx468y636
+184Gx409y631
+184Bx553y612
+185Rx469y637
+185Gx430y625
+185Bx556y621
+186Rx470y639
+186Gx472y639
+186Bx558y631
+187Rx470y642
+187Gx457y636
+187Bx560y638
+188Rx471y644
+188Gx432y658
+188Bx561y645
+189Rx471y644
+189Gx451y655
+189Bx561y652
+190Rx472y645
+190Gx456y652
+190Bx560y656
+191Rx471y645
+191Gx466y652
+191Bx560y658
+192Rx471y647
+192Gx469y652
+192Bx558y659
+193Rx471y644
+193Gx432y657
+193Bx560y658
+194Rx471y646
+194Gx465y660
+194Bx561y656
+195Rx469y644
+195Gx451y630
+195Bx558y651
+196Rx471y642
+196Gx470y648
+196Bx560y645
+197Rx469y641
+197Gx458y640
+197Bx559y639
+198Rx469y638
+198Gx437y649
+198Bx558y631
+199Rx468y637
+199Gx461y636
+199Bx556y623
+200Rx467y636
+200Gx461y640
+200Bx553y616
+201Rx466y633
+201Gx445y622
+201Bx550y607
+202Rx465y634
+202Gx417y608
+202Bx546y599
+203Rx464y632
+203Gx430y614
+203Bx541y589
+204Rx461y630
+204Gx443y604
+204Bx535y581
+205Rx460y628
+205Gx466y608
+205Bx529y573
+206Rx458y625
+206Gx418y599
+206Bx522y565
+207Rx455y623
+207Gx459y591
+207Bx514y557
+208Rx452y621
+208Gx425y587
+208Bx506y551
+209Rx448y619
+209Gx426y593
+209Bx497y545
+210Rx446y617
+210Gx427y590
+210Bx487y538
+211Rx441y616
+211Gx400y588
+211Bx478y534
+212Rx438y614
+212Gx422y590
+212Bx465y531
+213Rx436y613
+213Gx387y607
+213Bx455y528
+214Rx432y612
+214Gx401y576
+214Bx447y526
+215Rx430y612
+215Gx390y583
+215Bx443y524
+216Rx427y612
+216Gx382y582
+216Bx435y523
+217Rx427y612
+217Gx388y583
+217Bx430y523
+218Rx424y612
+218Gx373y589
+218Bx426y523
+219Rx424y611
+219Gx396y589
+219Bx423y522
+220Rx423y611
+220Gx362y599
+220Bx420y522
+221Rx423y612
+221Gx380y583
+221Bx419y522
+222Rx422y611
+222Gx402y575
+222Bx417y523
+223Rx422y612
+223Gx377y574
+223Bx416y522
+224Rx422y611
+224Gx402y579
+224Bx417y522
+225Rx422y611
+225Gx412y575
+225Bx417y522
+226Rx422y611
+226Gx382y587
+226Bx418y522
+227Rx423y611
+227Gx381y588
+227Bx421y522
+228Rx426y611
+228Gx387y585
+228Bx430y522
+229Rx428y611
+229Gx377y588
+229Bx435y522
+230Rx431y611
+230Gx400y594
+230Bx440y524
+231Rx434y611
+231Gx402y581
+231Bx452y525
+232Rx438y613
+232Gx383y600
+232Bx461y526
+233Rx442y614
+233Gx414y618
+233Bx473y530
+234Rx446y615
+234Gx393y596
+234Bx484y535
+235Rx449y617
+235Gx395y589
+235Bx495y541
+236Rx453y620
+236Gx449y600
+236Bx506y549
+237Rx458y623
+237Gx407y588
+237Bx514y559
+238Rx461y626
+238Gx431y639
+238Bx526y566
+239Rx464y629
+239Gx453y618
+239Bx534y577
+240Rx465y630
+240Gx482y620
+240Bx542y588
+241Rx467y633
+241Gx449y616
+241Bx545y598
+242Rx469y634
+242Gx478y636
+242Bx553y609
+243Rx469y636
+243Gx412y661
+243Bx556y619
+244Rx470y638
+244Gx443y646
+244Bx559y628
+245Rx471y640
+245Gx443y652
+245Bx560y636
+246Rx471y641
+246Gx469y650
+246Bx558y644
+247Rx472y643
+247Gx456y645
+247Bx558y650
+248Rx472y644
+248Gx463y664
+248Bx561y656
+249Rx473y644
+249Gx449y657
+249Bx561y659
+250Rx472y645
+250Gx445y664
+250Bx561y659
+251Rx472y645
+251Gx463y653
+251Bx560y659
+252Rx471y644
+252Gx461y654
+252Bx560y656
+253Rx472y643
+253Gx444y663
+253Bx561y650
+254Rx471y642
+254Gx482y656
+254Bx561y645
+255Rx470y639
+255Gx426y635
+255Bx560y636
+256Rx469y638
+256Gx350y636
+256Bx557y628
+257Rx468y637
+257Gx448y633
+257Bx555y619
+258Rx467y634
+258Gx452y639
+258Bx552y610
+259Rx466y633
+259Gx406y651
+259Bx547y600
+260Rx464y630
+260Gx459y628
+260Bx542y591
+261Rx461y629
+261Gx412y599
+261Bx536y581
+262Rx459y626
+262Gx415y608
+262Bx528y571
+263Rx456y624
+263Gx452y601
+263Bx520y562
+264Rx453y621
+264Gx462y597
+264Bx512y555
+265Rx450y619
+265Gx412y593
+265Bx503y547
+266Rx447y616
+266Gx436y585
+266Bx493y541
+267Rx443y614
+267Gx428y578
+267Bx484y535
+268Rx440y613
+268Gx388y594
+268Bx474y530
+269Rx434y611
+269Gx390y575
+269Bx453y526
+270Rx431y611
+270Gx351y563
+270Bx445y523
+271Rx429y611
+271Gx419y581
+271Bx438y521
+272Rx427y610
+272Gx420y575
+272Bx432y521
+273Rx425y610
+273Gx384y584
+273Bx427y520
+274Rx425y610
+274Gx410y576
+274Bx422y522
+275Rx423y610
+275Gx396y568
+275Bx422y520
+276Rx423y609
+276Gx366y601
+276Bx421y520
+277Rx422y609
+277Gx389y600
+277Bx420y520
+278Rx422y610
+278Gx387y580
+278Bx419y520
+279Rx423y609
+279Gx402y584
+279Bx420y520
+280Rx423y609
+280Gx395y589
+280Bx420y520
+281Rx423y609
+281Gx407y571
+281Bx422y520
+282Rx424y609
+282Gx399y579
+282Bx422y520
+283Rx424y609
+283Gx387y578
+283Bx421y520
+284Rx424y610
+284Gx385y585
+284Bx420y521
+285Rx425y610
+285Gx424y577
+285Bx423y520
+286Rx425y610
+286Gx385y567
+286Bx423y520
+287Rx424y610
+287Gx393y586
+287Bx423y520
