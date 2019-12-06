@@ -2,6 +2,8 @@
     "files.associations": {
         "windows.h": "c",
         "mylib.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "limits": "cpp",
+        "*.tcc": "cpp"
     }
 }
