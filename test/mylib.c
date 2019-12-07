@@ -64,15 +64,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
         midd = mid;
         if(state == R)//correspond to the lower1~lower2 bit in state_w;
         {
-          if(abso(valur-standardrr)<ranger)
+          if(abs(valur-standardrr)<ranger)
           {
             cont2++;
           }
-          if(abso(valug-standardrg)<ranger)
+          if(abs(valug-standardrg)<ranger)
           {
             cont2++;
           }
-          if(abso(valub-standardrb)<ranger)
+          if(abs(valub-standardrb)<ranger)
           {
             cont2++;
           }
@@ -91,15 +91,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
         }
         else if (state == G)//correspond to the lower3~lower4 bit in state_w;
         {
-          if(abso(valur-standardgr)<rangeg)
+          if(abs(valur-standardgr)<rangeg)
           {
             cont2++;
           }
-          if(abso(valug-standardgg)<rangeg)
+          if(abs(valug-standardgg)<rangeg)
           {
             cont2++;
           }
-          if(abso(valub-standardgb)<rangeg)
+          if(abs(valub-standardgb)<rangeg)
           {
             cont2++;
           }
@@ -118,15 +118,15 @@ BYTE recg( BYTE state , BITMAPINFOHEADER*sizer , FILE *base , ELEM *out )
         }
         else if (state ==B)//correspond to the lower5~lower6 bit in state_w;
         {
-          if(abso(valur-standardbr)<rangeb)
+          if(abs(valur-standardbr)<rangeb)
           {
             cont2++;
           }
-          if(abso(valug-standardbg)<rangeb)
+          if(abs(valug-standardbg)<rangeb)
           {
             cont2++;
           }
-          if(abso(valub-standardbb)<rangeb)
+          if(abs(valub-standardbb)<rangeb)
           {
             cont2++;
           }

@@ -28,7 +28,6 @@
 #define R 0
 #define G 1
 #define B 2
-#define syn 3
 
 #define BMP 0
 #define MARKF 1

@@ -42,6 +42,15 @@
 #define LLAG 2//little larger;
 #define VSML 3//very smaller;
 #define VLAG 4//very larger;
+//element's macros;
+#define NO 0
+#define YY 1
+#define XX 2
+#define LENE 3
+//range definitions for circle center;
+#define rangex 10
+#define rangey 10
+
 
 #define round(mole,deno)    (int)(((float)mole/deno)+0.5)
 
