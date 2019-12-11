@@ -17,6 +17,7 @@ subplot(1,2,1)
 hold on
 plot(x);                                            %绘制原波形
 plot(minxl,x(minxl),'*','color','R');                    %绘制最大值点
+
 title("x对应的幅值图");
 grid on;
 subplot(1,2,2);
