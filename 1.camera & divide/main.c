@@ -1,8 +1,8 @@
 #include<stdio.h>
+#include<string.h>
 #include<stdlib.h>
 #include"mylib.h"
 #include"macros.h"
-#include<string.h>
 int main()
 {
 
